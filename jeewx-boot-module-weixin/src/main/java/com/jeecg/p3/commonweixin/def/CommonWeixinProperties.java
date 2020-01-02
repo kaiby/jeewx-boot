@@ -27,7 +27,7 @@ public class CommonWeixinProperties {
 
 	static {
 		logger.info("========================Init==============CommonWeixin==============Properties====================");
-		PropertiesUtil globalp = new PropertiesUtil("jeewx.properties");
+		PropertiesUtil globalp = new PropertiesUtil("config/jeewx.properties");
 		defaultJwid = globalp.readProperty("defaultJwid");
 		domain = globalp.readProperty("oAuthDomain");
 		oAuthSignKey = globalp.readProperty("oAuthSignKey");

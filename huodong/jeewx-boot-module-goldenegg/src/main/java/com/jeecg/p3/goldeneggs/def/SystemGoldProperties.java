@@ -13,7 +13,7 @@ public class SystemGoldProperties {
 	public final static String oldActCode;
 
 	static {
-		PropertiesUtil globalp = new PropertiesUtil("jeewx.properties");
+		PropertiesUtil globalp = new PropertiesUtil("config/jeewx.properties");
 		domain = globalp.readProperty("oAuthDomain");
 		defaultJwid = globalp.readProperty("defaultJwid");
 		SIGN_KEY = globalp.readProperty("oAuthSignKey");

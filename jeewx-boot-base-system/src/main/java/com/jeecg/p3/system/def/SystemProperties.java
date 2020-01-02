@@ -39,7 +39,7 @@ public class SystemProperties {
 	public final static String COMPONENT_ENCODINGAESKEY;
 
 	static {
-		PropertiesUtil globalp = new PropertiesUtil("jeewx.properties");
+		PropertiesUtil globalp = new PropertiesUtil("config/jeewx.properties");
 		domain = globalp.readProperty("oAuthDomain");
 		defaultJwid = globalp.readProperty("defaultJwid");
 		SIGN_KEY = globalp.readProperty("oAuthSignKey");
