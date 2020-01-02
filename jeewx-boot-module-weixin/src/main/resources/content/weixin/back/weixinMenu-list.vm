@@ -39,6 +39,7 @@
 													<th>菜单类型</th>
 													<th>响应消息类型</th>
 													<th>菜单位置</th>
+													<th>菜单key</th>
 													##<th>网页链接</th>
 													##<th>菜单位置</th>
 													##<th>关联素材id</th>
@@ -97,6 +98,7 @@
 																		#if($!{info.orders}=="34")子菜单3*4#end
 																		#if($!{info.orders}=="35")子菜单3*5#end
 																	</td>
+																	<td>$!{info.menuKey}</td>
 																	##<td>$!{info.templateId}</td>
 																	##<td>$!{info.jwid}</td>
 																	##<td>$!{info.miniprogramAppid}</td>

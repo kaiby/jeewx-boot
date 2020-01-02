@@ -42,7 +42,6 @@
 												<div class="form-group mno">
 													<label for="inputEmail3" class="col-sm-1 control-label" style="text-align:left;">菜单位置</label>
 												    <div class="col-sm-5">
-												      <input type="hidden" value="$!{weixinMenu.menuKey}" name="menuKey" id="menuKey" class="form-control" datatype="*"/>
 													  <select name="orders" id="orders" class="form-control" datatype="*" value="一级菜单1">
 													      	<optgroup label="位置1">
 													      		<option value="1"  #if("$!{weixinMenu.orders}" == "1")selected="selected" #end>一级菜单1</option>
@@ -106,6 +105,12 @@
     											      <textarea type="text" name="url" id="url" class="form-control" datatype="url" ignore="ignore">$!{weixinMenu.url}</textarea>
     											    </div>
 											    </div>
+												<div class="form-group mno">
+													<label for="inputEmail3" class="col-sm-1 control-label" style="text-align:left;">菜单key</label>
+													<div class="col-sm-5">
+														<input type="text" value="$!{weixinMenu.menuKey}" placeholder="默认使用时间戳" name="menuKey" id="menuKey" class="form-control"/>
+													</div>
+												</div>
 					</form>
 				</div>
 			</div>

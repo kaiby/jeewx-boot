@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.common.base.Strings;
 import org.apache.velocity.VelocityContext;
 import org.jeecgframework.p3.core.common.utils.AjaxJson;
 import org.jeecgframework.p3.core.util.SystemTools;
@@ -150,8 +151,10 @@ public AjaxJson doAdd(@ModelAttribute WeixinMenu weixinMenu,HttpServletRequest r
 			if(weixinMenu.getOrders().length()>1&&!StringUtils.isEmpty(fatherId)||weixinMenu.getOrders().length()==1){
 				//2.1不是父级，有父级，直接添加/是父级，直接添加
 				weixinMenu.setFatherId(fatherId);
-				//菜单KEY改为时间戳
-				weixinMenu.setMenuKey(String.valueOf(System.currentTimeMillis()));
+				//菜单KEY为空时使用时间戳
+				if(Strings.isNullOrEmpty(weixinMenu.getMenuKey())){
+					weixinMenu.setMenuKey(String.valueOf(System.currentTimeMillis()));
+				}
 				weixinMenuService.doAdd(weixinMenu);
 				j.setSuccess(true);
 				j.setMsg("保存成功");
@@ -200,6 +203,12 @@ public AjaxJson doEdit(@ModelAttribute WeixinMenu weixinMenu,HttpServletRequest 
 		weixinMenu.setUpdateTime(new Date());
 		String updateBy = (String)request.getSession().getAttribute(Constants.SYSTEM_USERID);
 		weixinMenu.setUpdateBy(updateBy);
+
+		//菜单KEY为空时使用时间戳
+		if(Strings.isNullOrEmpty(weixinMenu.getMenuKey())){
+			weixinMenu.setMenuKey(String.valueOf(System.currentTimeMillis()));
+		}
+
 		//查询被编辑菜单的信息
 		WeixinMenu oldMenu=weixinMenuService.queryById(weixinMenu.getId());
 		//查询子集的个数
