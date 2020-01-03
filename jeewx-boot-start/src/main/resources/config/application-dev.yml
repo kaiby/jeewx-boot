@@ -29,7 +29,7 @@ spring:
           filters: stat
           driver-class-name: com.mysql.jdbc.Driver
           #基本属性
-          url: jdbc:mysql://106.0.4.214:3306/wx_boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+          url: jdbc:mysql://127.0.0.1:3306/wx_boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false
           username: root
           password: w7W64I2IMY0J
           #配置初始化大小/最小/最大
@@ -67,7 +67,7 @@ jeewx:
          access-sign-interceptor: /wechatController.do,/weixinLinksucai/link.do,/linksucai/link.do,/fx/mall/payCallBack.do,/newsController/getNewsClassify.do,/newsController/getNewslist.do,/CommonController/sendMsgCode.do,/api/eshop/**
     #Redis缓存配置
     redis:
-       ip: 203.57.228.98
+       ip: 127.0.0.1
        port: 6379
        password: O2Tu9&66f
        pool:
