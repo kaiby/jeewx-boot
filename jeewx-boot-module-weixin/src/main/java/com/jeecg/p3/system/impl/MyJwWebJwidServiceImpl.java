@@ -4,10 +4,11 @@ import com.jeecg.p3.commonweixin.dao.MyJwWebJwidDao;
 import com.jeecg.p3.commonweixin.def.CommonWeixinProperties;
 import com.jeecg.p3.commonweixin.entity.MyJwWebJwid;
 import com.jeecg.p3.commonweixin.exception.CommonweixinException;
+import com.jeecg.p3.commonweixin.service.WxTokenService;
 import com.jeecg.p3.commonweixin.util.AccessTokenUtil;
 import com.jeecg.p3.open.entity.WeixinOpenAccount;
 import com.jeecg.p3.open.service.WeixinOpenAccountService;
-import com.jeecg.p3.redis.JedisPoolUtil;
+import com.jeecg.p3.redis.service.RedisService;
 import com.jeecg.p3.system.service.MyJwWebJwidService;
 import com.jeecg.p3.weixinInterface.entity.WeixinAccount;
 import com.jeecg.p3.wxconfig.dao.WeixinHuodongBizJwidDao;
@@ -43,6 +44,12 @@ public class MyJwWebJwidServiceImpl implements MyJwWebJwidService {
 	private WeixinHuodongBizJwidDao weixinHuodongBizJwidDao;
 	@Autowired
 	private WeixinOpenAccountService weixinOpenAccountService;
+
+	@Autowired
+	private RedisService redisService;
+
+	@Autowired
+	private WxTokenService wxTokenService;
 	
 	//获取（刷新）授权公众号的接口调用凭据（令牌）
 	private static String GET_AUTHORIZER_ACCESS_TOKEN_URL="https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token=COMPONENT_ACCESS_TOKEN";
@@ -102,7 +109,9 @@ public class MyJwWebJwidServiceImpl implements MyJwWebJwidService {
 			return resetAccessTokenByType2(myJwWebJwid);
 		}else{
 			logger.info("------------本地授权公众号--------myJwWebJwid-------"+myJwWebJwid);
-			return resetAccessTokenByType1(myJwWebJwid);
+			wxTokenService.resetToken(myJwWebJwid.getJwid());
+			return "success";
+			// return resetAccessTokenByType1(myJwWebJwid);
 		}
 		
 	}
@@ -136,7 +145,9 @@ public class MyJwWebJwidServiceImpl implements MyJwWebJwidService {
 				po.setWeixinAccountid(myJwWebJwid.getJwid());//原始ID
 				po.setJsapiticket(myJwWebJwid.getJsApiTicket());
 				po.setJsapitickettime(myJwWebJwid.getJsApiTicketTime());
-				JedisPoolUtil.putWxAccount(po);
+				redisService.set(myJwWebJwid.getWeixinAppId(),po,60*100L);
+
+				redisService.set(myJwWebJwid.getJwid()+"_token",myJwWebJwid.getAccessToken(),60*100L);
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error("----------重置redis缓存token失败-------------"+e.toString());
@@ -203,7 +214,7 @@ public class MyJwWebJwidServiceImpl implements MyJwWebJwidService {
 					po.setWeixinAccountid(myJwWebJwid.getJwid());//原始ID
 					po.setJsapiticket(myJwWebJwid.getJsApiTicket());
 					po.setJsapitickettime(myJwWebJwid.getJsApiTicketTime());
-					JedisPoolUtil.putWxAccount(po);
+					redisService.set(myJwWebJwid.getWeixinAppId(),po);
 				} catch (Exception e) {
 					//TODO
 					System.out.println("----------定时任务：H5平台独立公众号，重置redis缓存token失败-------------"+e.toString());

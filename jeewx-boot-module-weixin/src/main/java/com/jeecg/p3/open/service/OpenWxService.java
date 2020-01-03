@@ -2,14 +2,16 @@ package com.jeecg.p3.open.service;
 
 import javax.annotation.Resource;
 
+import com.jeecg.p3.redis.service.RedisService;
 import org.jeecgframework.p3.core.util.oConvertUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeecg.p3.commonweixin.dao.MyJwWebJwidDao;
 import com.jeecg.p3.commonweixin.entity.MyJwWebJwid;
-import com.jeecg.p3.redis.JedisPoolUtil;
+
 import com.jeecg.p3.weixinInterface.entity.WeixinAccount;
 
 @Service("openWxService")
@@ -19,6 +21,9 @@ public class OpenWxService {
 	public final static String user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 	@Resource
 	private MyJwWebJwidDao myJwWebJwidDao;
+
+	@Autowired
+	private RedisService redisService;
 	
 	/**
 	 * 通过微信原始ID，获取系统微信公众账号配置信息
@@ -30,7 +35,7 @@ public class OpenWxService {
 		if(oConvertUtils.isEmpty(weixinId)){
 			return null;
 		}
-		weixinAccount = JedisPoolUtil.getWxAccount(weixinId);
+		weixinAccount = (WeixinAccount)redisService.get(weixinId);
 		if(weixinAccount == null){
 			//第一步：从缓存中取公众号信息
 			MyJwWebJwid myJwWebJwid = myJwWebJwidDao.queryByJwid(weixinId);
@@ -50,7 +55,8 @@ public class OpenWxService {
 				weixinAccount.setWeixinAccountid(myJwWebJwid.getJwid());//原始ID
 				weixinAccount.setJsapiticket(myJwWebJwid.getJsApiTicket());
 				weixinAccount.setJsapitickettime(myJwWebJwid.getJsApiTicketTime());
-				JedisPoolUtil.putWxAccount(weixinAccount);
+
+				redisService.set(myJwWebJwid.getJwid(),weixinAccount);
 				logger.info("---------------------读取数据库，获取公众号信息------------------------------------");
 				return weixinAccount;
 			}

@@ -5,10 +5,10 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeecg.p3.redis.service.RedisService;
 import org.apache.velocity.VelocityContext;
 import org.jeecgframework.p3.core.common.utils.AjaxJson;
 import org.jeecgframework.p3.core.util.SystemTools;
-import org.jeecgframework.p3.core.util.WeiXinHttpUtil;
 import org.jeecgframework.p3.core.util.plugin.ViewVelocity;
 import org.jeecgframework.p3.core.utils.common.PageQuery;
 import org.jeecgframework.p3.core.web.BaseController;
@@ -56,6 +56,9 @@ public class WeixinNewstemplateController extends BaseController{
 	private WeixinGzuserService weixinGzuserService;
 	@Autowired
 	private MyJwWebJwidService myJwWebJwidService;
+
+	 @Autowired
+	 private RedisService redisService;
   
 /**
   * 列表页面
@@ -253,7 +256,7 @@ public AjaxJson doPreview(@RequestParam String openid,@RequestParam String templ
 				String media_id=newstemplate.getMediaId();
 				//获取accessToken
 				String jwid=request.getSession().getAttribute("jwid").toString();
-				String accessToken=WeiXinHttpUtil.getRedisWeixinToken(jwid);
+				String  accessToken = (String)redisService.get(jwid+"_token");
 				//调用创建标签接口
 				String name="{\"touser\":\""+openid+"\",\"mpnews\":{\"media_id\":\""+media_id+"\"},\"msgtype\":\"mpnews\"}";
 				String requestUrl=message_preview_url.replace("ACCESS_TOKEN", accessToken);

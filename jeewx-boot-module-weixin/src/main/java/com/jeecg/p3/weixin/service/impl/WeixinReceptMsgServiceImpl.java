@@ -6,10 +6,11 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import com.jeecg.p3.commonweixin.service.WxTokenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import org.jeecgframework.p3.core.util.WeiXinHttpUtil;
 import org.jeecgframework.p3.core.utils.common.PageList;
 import org.jeecgframework.p3.core.utils.common.PageQuery;
 import org.jeecgframework.p3.core.utils.common.PageQueryWrapper;
@@ -35,6 +36,9 @@ public class WeixinReceptMsgServiceImpl implements WeixinReceptMsgService {
 
 	@Resource
 	private WeixinReceptMsgDao weixinReceptMsgDao;
+
+	@Autowired
+	private WxTokenService wxTokenService;
 
 	@Override
 	public void doAdd(WeixinReceptMsg weixinReceptMsg) {
@@ -91,7 +95,7 @@ public class WeixinReceptMsgServiceImpl implements WeixinReceptMsgService {
 	
 	public  net.sf.json.JSONObject sendMessage(String json,String jwid){
 		// 调用接口获取access_token
-		String accessTocken=WeiXinHttpUtil.getRedisWeixinToken(jwid);
+		String accessTocken= wxTokenService.getToken(jwid);
 	    if(StringUtils.isNotEmpty(accessTocken)){
 	    	String url = send_message_url.replace("ACCESS_TOKEN",accessTocken);
 	    	net.sf.json.JSONObject jsonObject = WeixinUtil.httpRequest(url, "POST", json);

@@ -39,7 +39,7 @@
 		<java.version>1.8</java.version>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<druid.version>1.1.17</druid.version>
-		<springboot.version>2.1.3.RELEASE</springboot.version>
+		<springboot.version>2.2.1.RELEASE</springboot.version>
 		<commons.version>2.6</commons.version>
 		<commons-fileupload.version>1.4</commons-fileupload.version>
 		<commons-chalics.version>2.7.1</commons-chalics.version>
@@ -112,7 +112,7 @@
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
-				<version>1.2.56</version>
+				<version>1.2.62</version>
 			</dependency>
 
 			<!-- UE编辑器 -->

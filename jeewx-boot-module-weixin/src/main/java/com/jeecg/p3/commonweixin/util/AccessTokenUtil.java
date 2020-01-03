@@ -20,6 +20,28 @@ public class AccessTokenUtil {
 	private static final String api_ticket_url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=wx_card";
 	private static final String jsapi_ticket_url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi";
 
+	/**
+	 * 获取微信TOKEN
+	 * @param appid 凭证
+	 * @param appsecret 凭证密钥
+	 * @return
+	 */
+	public static String getWxAccseeToken(String appid,String appsecret){
+		String url = requestUrl.replace("APPID", appid).replace("APPSECRET", appsecret);
+		LOG.info("AccseeToken request url={}.", new Object[]{url});
+		JSONObject jsonObj = WeiXinHttpUtil.sendGet(url);
+		LOG.info("AccseeToken response jsonStr={}.", jsonObj);
+		if(jsonObj != null && jsonObj.containsKey("access_token")) {
+			String accessToken = jsonObj.getString("access_token");
+			return accessToken;
+		}else{
+			if(jsonObj != null && jsonObj.containsKey("errcode")){
+				LOG.error("AccseeToken request error={}.", jsonObj.getString("errmsg"));
+			}
+		}
+		return null;
+	}
+
 	public static Map<String,Object> getAccseeToken(String appid,String appsecret){
 		Map<String,Object> data = new HashMap<String,Object>();
 		try {

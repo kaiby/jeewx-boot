@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jeecg.p3.redis.service.RedisService;
 import org.apache.velocity.VelocityContext;
 import org.jeecgframework.p3.core.common.utils.AjaxJson;
 import org.jeecgframework.p3.core.util.SystemTools;
@@ -27,7 +28,7 @@ import com.jeecg.p3.commonweixin.def.CommonWeixinProperties;
 import com.jeecg.p3.open.entity.WeixinOpenAccount;
 import com.jeecg.p3.open.service.WeixinOpenAccountService;
 import com.jeecg.p3.commonweixin.util.HttpUtil;
-import com.jeecg.p3.redis.JedisPoolUtil;
+
 import com.jeecg.p3.system.service.MyJwWebJwidService;
 import com.jeecg.p3.weixinInterface.entity.WeixinAccount;
 
@@ -46,6 +47,9 @@ public class WeixinOpenAccountController extends BaseController{
   private MyJwWebJwidService myJwWebJwidService;
   //重置第三方平台AccessToken接口
   private static String GET_COMPONENT_ACCESS_ACTOKEN_URL="https://api.weixin.qq.com/cgi-bin/component/api_component_token";
+
+	 @Autowired
+	 private RedisService redisService;
 /**
   * 列表页面
   * @return
@@ -104,7 +108,8 @@ public AjaxJson resetAccessToken(HttpServletResponse response,HttpServletRequest
 					po.setAccountaccesstoken(weixinOpenAccount.getComponentAccessToken());
 					po.setAddtoekntime(weixinOpenAccount.getGetAccessTokenTime());
 					po.setWeixinAccountid(weixinOpenAccount.getAppid());//APPID
-					JedisPoolUtil.putWxAccount(po);
+
+					redisService.set(weixinOpenAccount.getAppid(),po);
 				} catch (Exception e) {
 					log.error("----------第三方平台账号重置TOKEN错误-------------"+e.toString());
 					e.printStackTrace();
