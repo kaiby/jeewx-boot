@@ -84,6 +84,7 @@ public void list(@ModelAttribute WeixinMenu query,HttpServletResponse response,H
 	 	}
 	 	//update-end--Author:zhangweijian  Date: 20180928 for：无权限不能查看公众号数据
 	 	//update-end--Author:zhangweijian  Date: 20180720 for：添加jwid查询条件
+		query.setStatus(1);
 		pageQuery.setQuery(query);
 		WeixinMenuTypeEnum[] menuTypeEnums=WeixinMenuTypeEnum.values();
 		WeixinMsgTypeEnum[] msgTypeEnums=WeixinMsgTypeEnum.values();
@@ -134,6 +135,7 @@ public void toAddDialog(HttpServletRequest request,HttpServletResponse response,
 public AjaxJson doAdd(@ModelAttribute WeixinMenu weixinMenu,HttpServletRequest request){
 	AjaxJson j = new AjaxJson();
 	try {
+		weixinMenu.setStatus(1);
 		//添加创建时间
 		weixinMenu.setCreateTime(new Date());
 		//1.判断当前级是否存在
@@ -287,7 +289,9 @@ public AjaxJson doDelete(@RequestParam(required = true, value = "id" ) String id
 				j.setMsg("当前菜单存在下级菜单，不能删除");
 			}else{
 				//1.2是父级不存在子级(或者不是父级)
-				weixinMenuService.doDelete(id);
+				// weixinMenuService.doDelete(id);
+				oldMenu.setStatus(0);
+				weixinMenuService.doEdit(oldMenu);
 				j.setMsg("删除成功");
 			}
 		} catch (Exception e) {

@@ -75,6 +75,10 @@
 	  		 		/* 小程序页面路径 */
 			    	AND wm.miniprogram_pagepath =  #{query.miniprogramPagepath,jdbcType=VARCHAR}
 				 </if>
+				 <if test="query.status != null" >
+					/* 菜单状态：0--删除；1--启用；2--草稿 */
+					AND wm.status =  #{query.status,jdbcType=INTEGER}
+				 </if>
 				 <if test="query.createBy != null and query.createBy != ''" >
 	  		 		/* 创建人登录名称 */
 			    	AND wm.create_by =  #{query.createBy,jdbcType=VARCHAR}
@@ -114,7 +118,8 @@
                      ,template_id                   /* 关联素材id */ 
                      ,jwid                          /* 公众号原始id */ 
                      ,miniprogram_appid             /* 小程序appid */ 
-                     ,miniprogram_pagepath          /* 小程序页面路径 */ 
+                     ,miniprogram_pagepath          /* 小程序页面路径 */
+                     ,status                        /* 菜单状态：0--删除；1--启用；2--草稿 */
                      ,create_by                     /* 创建人登录名称 */ 
                      ,create_time                   /* 创建时间 */ 
                      ,update_by                     /* 修改人登录名称 */ 
@@ -132,7 +137,8 @@
                      ,#{templateId,jdbcType=VARCHAR}                    /* 关联素材id */ 
                      ,#{jwid,jdbcType=VARCHAR}                          /* 公众号原始id */ 
                      ,#{miniprogramAppid,jdbcType=VARCHAR}              /* 小程序appid */ 
-                     ,#{miniprogramPagepath,jdbcType=VARCHAR}           /* 小程序页面路径 */ 
+                     ,#{miniprogramPagepath,jdbcType=VARCHAR}           /* 小程序页面路径 */
+                     ,#{status,jdbcType=INTEGER}                        /* 菜单状态：0--删除；1--启用；2--草稿 */
                      ,#{createBy,jdbcType=VARCHAR}                      /* 创建人登录名称 */ 
                      ,#{createTime,jdbcType=TIMESTAMP}                    /* 创建时间 */ 
                      ,#{updateBy,jdbcType=VARCHAR}                      /* 修改人登录名称 */ 
@@ -202,6 +208,10 @@
 		    		 		/* 创建人登录名称 */ 
 	    		 			create_by = #{createBy,jdbcType=VARCHAR},
 						 </if>
+						<if test="status != null">
+							/* 菜单状态：0--删除；1--启用；2--草稿 */
+							status = #{status,jdbcType=INTEGER},
+						</if>
 						 <if test="createTime != null">
 		    		 		/* 创建时间 */ 
 	    		 			create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -239,7 +249,8 @@
                   ,wm.jwid                          /* 公众号原始id */ 
                   ,wm.miniprogram_appid             /* 小程序appid */ 
                   ,wm.miniprogram_pagepath          /* 小程序页面路径 */ 
-                  ,wm.create_by                     /* 创建人登录名称 */ 
+                  ,wm.status                        /* 菜单状态：0--删除；1--启用；2--草稿 */
+                  ,wm.create_by                     /* 创建人登录名称 */
                   ,wm.create_time                   /* 创建时间 */ 
                   ,wm.update_by                     /* 修改人登录名称 */ 
                   ,wm.update_time                   /* 修改时间 */ 
@@ -292,7 +303,8 @@
                   ,wm.jwid                          /* 公众号原始id */ 
                   ,wm.miniprogram_appid             /* 小程序appid */ 
                   ,wm.miniprogram_pagepath          /* 小程序页面路径 */ 
-                  ,wm.create_by                     /* 创建人登录名称 */ 
+                  ,wm.status                        /* 菜单状态：0--删除；1--启用；2--草稿 */
+		          ,wm.create_by                     /* 创建人登录名称 */
                   ,wm.create_time                   /* 创建时间 */ 
                   ,wm.update_by                     /* 修改人登录名称 */ 
                   ,wm.update_time                   /* 修改时间 */ 
@@ -308,21 +320,21 @@
 	<select id="getFatherIdByorders" parameterType="Object" resultType="java.lang.String">
 		SELECT id 
 		FROM weixin_menu
-		WHERE orders=LEFT(#{orders},1) AND jwid =#{jwid} AND length(#{orders})>1
+		WHERE orders=LEFT(#{orders},1) AND jwid =#{jwid} AND status = 1 AND length(#{orders})>1
 	</select>
 	
 	<!-- 根据orders查询菜单信息 -->
 	<select id="queryByOrders" parameterType="Object" resultType="com.jeecg.p3.weixin.entity.WeixinMenu">
 		SELECT * 
 		FROM weixin_menu
-		WHERE orders=#{orders} AND jwid =#{jwid}
+		WHERE orders=#{orders} AND jwid =#{jwid} AND status = 1
 	</select>
 	
 	<!-- 根据fatherId查询其子级菜单 -->
 	<select id="getSonMenuByFatherId" parameterType="java.lang.String" resultType="java.lang.Integer">
 		SELECT count(*)
 		FROM weixin_menu
-		WHERE father_id =#{fatherId}
+		WHERE father_id =#{fatherId} AND status = 1
 	</select>
 	
 	<!--update-begin-Author:zhangweijian  Date: 20180723 for：获取一级菜单-->
@@ -341,7 +353,8 @@
                   ,wm.jwid                          /* 公众号原始id */ 
                   ,wm.miniprogram_appid             /* 小程序appid */ 
                   ,wm.miniprogram_pagepath          /* 小程序页面路径 */ 
-                  ,wm.create_by                     /* 创建人登录名称 */ 
+                  ,wm.status                        /* 菜单状态：0--删除；1--启用；2--草稿 */
+		          ,wm.create_by                     /* 创建人登录名称 */
                   ,wm.create_time                   /* 创建时间 */ 
                   ,wm.update_by                     /* 修改人登录名称 */ 
                   ,wm.update_time                   /* 修改时间 */ 
@@ -351,13 +364,14 @@
 			AND jwid=#{jwid}
 		</if>
 		<choose>
-		<when test="fatherId !='' and fatherId !=null ">
-			AND father_id=#{fatherId}
-		</when>
-		<otherwise>
-			AND (father_id='' OR father_id  is null)
-		</otherwise>
+			<when test="fatherId !='' and fatherId !=null ">
+				AND father_id=#{fatherId}
+			</when>
+			<otherwise>
+				AND (father_id='' OR father_id  is null)
+			</otherwise>
 		</choose>
+		AND status = 1
 	</select>
 	<!--update-begin-Author:zhangweijian  Date: 20180723 for：获取一级菜单-->
 	
@@ -376,11 +390,12 @@
                   ,wm.jwid                          /* 公众号原始id */ 
                   ,wm.miniprogram_appid             /* 小程序appid */ 
                   ,wm.miniprogram_pagepath          /* 小程序页面路径 */ 
-                  ,wm.create_by                     /* 创建人登录名称 */ 
+                  ,wm.status                        /* 菜单状态：0--删除；1--启用；2--草稿 */
+                  ,wm.create_by                     /* 创建人登录名称 */
                   ,wm.create_time                   /* 创建时间 */ 
                   ,wm.update_by                     /* 修改人登录名称 */ 
                   ,wm.update_time                   /* 修改时间 */ 
 		FROM   	 weixin_menu      AS wm      /* 微信菜单表 */ 
-		WHERE wm.menu_key = #{key} AND wm.jwid = #{jwid}
+		WHERE wm.menu_key = #{key} AND wm.jwid = #{jwid} AND status = 1
 	</select>
 </mapper>
