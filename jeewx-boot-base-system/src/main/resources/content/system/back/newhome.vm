@@ -157,7 +157,7 @@ $(function(){
 	});
 });
 function recommendAjax(id){
-	var url="$!{basePath}/system/back/jwSystemProject/getRecommendDetail.do";
+	var url="$!{basePath}/system/back/jwSystemProject/getRecommendDetail";
 	jQuery.ajax({
 		url:url,
 		type:"POST",
@@ -248,7 +248,7 @@ function toClassifyDetail(id){
 	$("#recommendActiveBox").html("");
 	$("#noActiveTips").hide();//没有内容隐藏
 	$("#otherActiveBox").show();
-	var url="$!{basePath}/system/back/jwSystemProject/toClassifyDetail.do";
+	var url="$!{basePath}/system/back/jwSystemProject/toClassifyDetail";
 	$(".classificationcontent").css("color","#000");
 	$("#classificationcontent"+id).css("color","#15B");
 	jQuery.ajax({
@@ -302,7 +302,7 @@ function actDetail(id){
     $("#customized").attr("_dataurl","");
     $("#deqrimg").html("");
     $("#detaile").html("");
-	var url="$!{basePath}/system/back/jwSystemProject/actDetail.do";
+	var url="$!{basePath}/system/back/jwSystemProject/actDetail";
 	jQuery.ajax({
 		url:url,
 		type:"POST",

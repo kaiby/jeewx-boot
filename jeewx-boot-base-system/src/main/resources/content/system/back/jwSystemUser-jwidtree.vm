@@ -8,7 +8,7 @@
 	
 <script type="text/javascript">
 $(document).ready(function(){
-	showAuth('$!{basePath}/system/back/jwWebJwid/initJwid.do','$!{jwSystemuser.userId}');
+	showAuth('$!{basePath}/system/back/jwWebJwid/initJwid','$!{jwSystemuser.userId}');
 });
 
 </script>

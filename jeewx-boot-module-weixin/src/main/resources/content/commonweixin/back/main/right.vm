@@ -56,7 +56,7 @@
         <!-- <a href="$!{basePath}/system/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a> -->
     </div>
     <div class="row J_mainContent" id="content-main">
-        <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="$!{basePath}/commonweixin/back/index/toHome?jwid=$!{jwid}" frameborder="0" data-id="$!{basePath}/commonweixin/back/index/toHome.do?jwid=$!{jwid}" seamless=""></iframe>
+        <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="$!{basePath}/commonweixin/back/index/toHome?jwid=$!{jwid}" frameborder="0" data-id="$!{basePath}/commonweixin/back/index/toHome?jwid=$!{jwid}" seamless=""></iframe>
     </div>
     <div class="footer">
         <div class="pull-right"> <font color="red"> QQ 交流群：</font><a href="https://jq.qq.com/?_wv=1027&k=42XOHaZ" target="_blank"> <font color="red">413534092</font></a>  &nbsp;&nbsp;&nbsp;&nbsp;|   &nbsp;&nbsp; ©<a href="http://h5huodong.com/" target="_blank">捷微H5官网</a></div>
