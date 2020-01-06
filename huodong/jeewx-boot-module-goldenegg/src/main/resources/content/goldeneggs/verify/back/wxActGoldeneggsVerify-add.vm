@@ -9,11 +9,11 @@
 			<div class="panel panel-default">
 			<div class="panel-heading" >
 					<button type="button" class="btn btn-primary" id="formSubmit"><span class="glyphicon glyphicon-ok"></span>保存</button>
-					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/list.do?actId=$!{ActId}')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/list?actId=$!{ActId}')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 					<div style="height:1px;clear:both"></div>
 				</div>
 					<div class="panel-body">
-						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/doAdd.do" method="POST">
+						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/doAdd" method="POST">
 					  		<input type="hidden" id="btn_sub" class="btn_sub" />
 					  		<input type="hidden" value="" name="headimg" id="headimgurl" />
 					  							<div style="display:none">
@@ -133,7 +133,7 @@ function getScanCodeList() {
 		return;
 	}
 	jQuery.ajax({
-		url:'$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/getScanCodeList.do?ewmCode='+ewmCode,
+		url:'$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/getScanCodeList?ewmCode='+ewmCode,
 		type:'POST',
 		dataType:'json',
 		success:function(data){

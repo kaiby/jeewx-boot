@@ -125,14 +125,14 @@ define(function (require, exports, module) {
             				var openid=$("#openid").val();
             				var code=$("#code").val();
             				$.ajax({
-            		       		url:basePath+"/goldeneggs/new/saveGoldEggPrize.do",
+            		       		url:basePath+"/goldeneggs/new/saveGoldEggPrize",
             		       		method:"POST",
             		       		dataType:"JSON",
             		       		data:{mobile:tel,username:name,address:adr,code:code},
             		       		success:function(data){
             		       		   if(data.success){
             		       		   		alert("提交成功，谢谢参与！");
-            		       			   	url=basePath+"/goldeneggs/new/toGoldenegg.do";
+            		       			   	url=basePath+"/goldeneggs/new/toGoldenegg";
             				       location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid;
             		       		   }else{
             		       		   		alert(data.msg);

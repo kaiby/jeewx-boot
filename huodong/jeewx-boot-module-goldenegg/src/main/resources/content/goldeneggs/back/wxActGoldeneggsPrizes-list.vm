@@ -7,12 +7,12 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/list.do?showReturnFlag=1" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/list?showReturnFlag=1" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">
 									#if($!{showReturnFlag})
-										<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+										<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 									#else
     									砸金蛋奖品配置
 									#end
@@ -47,7 +47,7 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/toAdd.do?showReturnFlag=$!{showReturnFlag}')" ><span class="glyphicon glyphicon-plus"></span> 新增</button></legend> 
+								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/toAdd?showReturnFlag=$!{showReturnFlag}')" ><span class="glyphicon glyphicon-plus"></span> 新增</button></legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -68,8 +68,8 @@
 																	##<td>$!{info.jwid}</td>
 																	##<td>$!{info.createBy}</td>
 										                <td class="last">
-							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/toEdit.do?id=$!{info.id}&showReturnFlag=$!{showReturnFlag}')" ><i class="fa fa-edit"></i> 编辑</a>
-							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/toEdit?id=$!{info.id}&showReturnFlag=$!{showReturnFlag}')" ><i class="fa fa-edit"></i> 编辑</a>
+							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
 							                			
 						                				</td>
 									           		</tr>

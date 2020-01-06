@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="panel panel-default">
 				<div class="panel-heading" style="34px">
-					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list.do')"><span class="glyphicon glyphicon-log-in"></span> 返回</button>
+					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list')"><span class="glyphicon glyphicon-log-in"></span> 返回</button>
 					<div style="height:1px;clear:both"></div>
 				</div>
 				
