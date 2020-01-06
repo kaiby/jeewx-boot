@@ -56,7 +56,7 @@ public class WeixinIndexController extends BaseController{
 					 String path = request.getContextPath();
 					 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 					 System.out.println("----basePath------"+basePath);
-					 response.sendRedirect(basePath+"/system/login.do");
+					 response.sendRedirect(basePath+"/system/login");
 				 }
 				 if(userid!=null && myJwWebJwid!=null && !userid.equals(myJwWebJwid.getCreateBy())){
 					 //throw new BusinessException("商城信息异常");

@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/qrcode/back/weixinQrcode/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/qrcode/back/weixinQrcode/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">列表</div>
@@ -43,7 +43,7 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcode/toAdd.do')" ><span class="glyphicon glyphicon-plus"></span> 新增</button></legend>
+								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcode/toAdd')" ><span class="glyphicon glyphicon-plus"></span> 新增</button></legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -84,11 +84,11 @@
 																	<td style="word-break:break-all;width:120px;">$!{info.tags}</td>
 																	<td>$!dateTool.format("yyyy-MM-dd HH:mm:ss",$!{info.createTime})</td>
 										                <td class="last">
-							                			<a class="btn btn-primary btn-xs" href="javascript:doUrl('$!{basePath}/qrcode/back/weixinQrcode/toEdit.do?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
+							                			<a class="btn btn-primary btn-xs" href="javascript:doUrl('$!{basePath}/qrcode/back/weixinQrcode/toEdit?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
 							                			<a class="btn btn-success btn-xs" style="background-Color: #139601;border: none;" href="javascript:generateQrcode('$!{info.id}','$!{info.jwid}','$!{info.actionName}','$!{info.sceneId}','$!{info.expireSeconds}');"><i class="fa fa-link"></i>生成二维码</a></br>
 							                			<p></p>
-							                			<a class="btn btn-danger btn-xs" href="javascript:delData('$!{basePath}/qrcode/back/weixinQrcode/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
-							                			<a class="btn btn-success btn-xs" href="javascript:doUrl('$!{basePath}/qrcode/back/weixinQrcodeScanRecord/list.do?sceneId=$!{info.sceneId}&sceneStr=$!{info.sceneStr}&jwid=$!{info.jwid}')"><i class="fa fa-th-list"></i>扫码记录</a>
+							                			<a class="btn btn-danger btn-xs" href="javascript:delData('$!{basePath}/qrcode/back/weixinQrcode/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+							                			<a class="btn btn-success btn-xs" href="javascript:doUrl('$!{basePath}/qrcode/back/weixinQrcodeScanRecord/list?sceneId=$!{info.sceneId}&sceneStr=$!{info.sceneStr}&jwid=$!{info.jwid}')"><i class="fa fa-th-list"></i>扫码记录</a>
 						                				</td>
 									           		</tr>
 									             #end
@@ -131,7 +131,7 @@ function getCkValue(){
 
 function generateQrcode(id,jwid,actionName,sceneId,expireSeconds){
 	jQuery.ajax({
-        url:"$!{basePath}/qrcode/back/weixinQrcode/generateQrcode.do",
+        url:"$!{basePath}/qrcode/back/weixinQrcode/generateQrcode",
         type:"POST",
         dataType:"JSON",
         data:{

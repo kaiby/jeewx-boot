@@ -8,7 +8,7 @@
 <input type="hidden" name="tagid" id="tagid" value="$!{tagid}" />
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinGzuser/getUser.do?tagid=$!{tagid}" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinGzuser/getUser?tagid=$!{tagid}" method="post"  id="formSubmit">
 				<div  style="width:100%">
 					  <div class="panel-body">
     			  		<div class="search">
@@ -143,7 +143,7 @@ function getCkValue(){
   });    
   var tagid=$("#tagid").val();
   jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinTag/batchtagging.do',
+		url:'$!{basePath}/weixin/back/weixinTag/batchtagging',
 		type:'post',
 		data:{
 			tagid:tagid,
@@ -165,7 +165,7 @@ function getCkValue(){
 //粉丝同步
 function syncFans(){
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinGzuser/syncFans.do',
+		url:'$!{basePath}/weixin/back/weixinGzuser/syncFans',
 		type:'post',
 		dataType:'json',
 		success:function(data){

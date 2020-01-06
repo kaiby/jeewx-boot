@@ -532,7 +532,7 @@
 	<!-- 重新生成入口地址 -->
 	<update id="changeType" parameterType="Object">
 		UPDATE jw_system_project
-		SET hdurl = CONCAT(#{domain},'/linksucai/link.do?linkid=',id),
+		SET hdurl = CONCAT(#{domain},'/linksucai/link?linkid=',id),
 		sc_type = '2'
 		WHERE code != 'cms'
 	</update>

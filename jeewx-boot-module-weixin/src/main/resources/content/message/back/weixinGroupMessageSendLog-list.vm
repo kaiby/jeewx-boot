@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 <div class="container bs-docs-container" style="width:100%;">
 	<div class="row">
-		<form role="form" class="form-inline" action="$!{basePath}/message/back/weixinGroupMessageSendLog/list.do" method="post"  id="formSubmit">
+		<form role="form" class="form-inline" action="$!{basePath}/message/back/weixinGroupMessageSendLog/list" method="post"  id="formSubmit">
 			<div  class="col-md-10" style="width:100%">
 				<div class="panel panel-default">
 					<div class="panel-heading">群发消息审核</div>
@@ -232,13 +232,13 @@
 <script >
 //预览弹出框
 function preview(logid){
-    $("#showSendPreview").attr("src","$!{basePath}/message/back/weixinGroupMessageSendLog/getUserForPreview.do?logid="+logid);
+    $("#showSendPreview").attr("src","$!{basePath}/message/back/weixinGroupMessageSendLog/getUserForPreview?logid="+logid);
     $("#openSendPreview").click();
 }
 
 //群发消息结果弹出框
 function doCheck(sendLogId){
-    $("#showSendDetail").attr("src","$!{basePath}/message/back/weixinGroupMessageSendDetail/list.do?sendLogId="+sendLogId);
+    $("#showSendDetail").attr("src","$!{basePath}/message/back/weixinGroupMessageSendDetail/list?sendLogId="+sendLogId);
     $("#openSendDetail").click();
 }
 
@@ -260,7 +260,7 @@ function doAuditGroupMessage(){
 	//var sendType=$("#sendType").val();
 	var sendIgnoreReprint=$("#sendIgnoreReprint").val();
 	jQuery.ajax({
-		url:'$!{basePath}/message/back/sendGroupMessageController/doAuditGroupMessage.do',
+		url:'$!{basePath}/message/back/sendGroupMessageController/doAuditGroupMessage',
 		type:'post',
 		data:{
 			id:id,
@@ -324,7 +324,7 @@ function ignore(type){
 //本地预览文本消息
 function showModal(msgType,id) {
 	jQuery.ajax({
-    	url:"$!{basePath}/message/back/weixinGroupMessageSendLog/showMoalMessage.do",
+    	url:"$!{basePath}/message/back/weixinGroupMessageSendLog/showMoalMessage",
     	type:"POST",
     	dataType: "json",
     	data:{

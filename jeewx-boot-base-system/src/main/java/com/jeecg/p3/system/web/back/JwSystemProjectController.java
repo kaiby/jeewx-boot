@@ -116,7 +116,7 @@ public AjaxJson doAdd(@ModelAttribute JwSystemProject jwSystemProject){
 		}else{
 			jwSystemProject.setId(UUID.randomUUID().toString().replace("-", ""));
 			if(jwSystemProject.getScType()!=null&&2==jwSystemProject.getScType()){
-				jwSystemProject.setHdurl("${domain}/linksucai/link.do?linkid="+jwSystemProject.getId());
+				jwSystemProject.setHdurl("${domain}/linksucai/link?linkid="+jwSystemProject.getId());
 			}
 			jwSystemProjectService.doAdd(jwSystemProject);
 			j.setMsg("保存成功");
@@ -161,7 +161,7 @@ public AjaxJson doEdit(@ModelAttribute JwSystemProject jwSystemProject){
 			j.setMsg("项目编码重复，请重新设置");
 		}else{
 			if(jwSystemProject.getScType()!=null&&2==jwSystemProject.getScType()){
-				jwSystemProject.setHdurl("${domain}/linksucai/link.do?linkid="+jwSystemProject.getId());
+				jwSystemProject.setHdurl("${domain}/linksucai/link?linkid="+jwSystemProject.getId());
 			}
 			jwSystemProjectService.doEdit(jwSystemProject);
 			j.setMsg("编辑成功");

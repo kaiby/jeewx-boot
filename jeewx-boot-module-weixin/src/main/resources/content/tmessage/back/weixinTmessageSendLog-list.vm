@@ -7,11 +7,11 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/tmessage/back/weixinTmessageSendLog/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/tmessage/back/weixinTmessageSendLog/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">
-								  <button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+								  <button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 								  </div>
 								  <div class="panel-body">
 								  		<div class="search">
@@ -36,7 +36,7 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le"><!-- <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessageSendLog/toAdd.do')" ><span class="glyphicon glyphicon-plus"></span> 新增</button> --></legend> 
+								          <legend  class="le"><!-- <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessageSendLog/toAdd')" ><span class="glyphicon glyphicon-plus"></span> 新增</button> --></legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -65,8 +65,8 @@
 																	#end
 																	<td>$!dateTool.format("yyyy-MM-dd HH:mm:ss",$!{info.createDate})</td>
 										                ##<td class="last">
-							                			##<a class="btn btn-primary btn-xs" href="javascript:doUrl('$!{basePath}/tmessage/back/weixinTmessageSendLog/toEdit.do?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
-							                			##<a class="btn btn-danger btn-xs" href="javascript:delData('$!{basePath}/tmessage/back/weixinTmessageSendLog/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+							                			##<a class="btn btn-primary btn-xs" href="javascript:doUrl('$!{basePath}/tmessage/back/weixinTmessageSendLog/toEdit?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
+							                			##<a class="btn btn-danger btn-xs" href="javascript:delData('$!{basePath}/tmessage/back/weixinTmessageSendLog/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
 						                				##</td>
 									           		</tr>
 									             #end

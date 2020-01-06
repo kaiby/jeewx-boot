@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinSubscribe/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinSubscribe/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">关注欢迎语</div>
@@ -23,7 +23,7 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le">#if($!{pageInfos.size()} == 0)<button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/weixin/back/weixinSubscribe/toAdd.do')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>#end</legend> 
+								          <legend  class="le">#if($!{pageInfos.size()} == 0)<button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/weixin/back/weixinSubscribe/toAdd')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>#end</legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -54,8 +54,8 @@
 																	<td>$!{info.templateName}</td>
 																	<td>$!dateTool.format("yyyy-MM-dd",$!{info.createTime})</td>
 										                <td class="last">
-							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/weixin/back/weixinSubscribe/toEdit.do?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
-							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/weixin/back/weixinSubscribe/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/weixin/back/weixinSubscribe/toEdit?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
+							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/weixin/back/weixinSubscribe/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
 														<a class="btn btn-xs btn-info" href="javascript:void(0);" onclick="showModal('$!{info.msgType}','$!{info.templateId}')"><i class="fa fa-search"></i> 预览</a>
 						                				</td>
 									           		</tr>
@@ -126,7 +126,7 @@ function showModal(msgType,templateId) {
 		return false;
 	}
 	jQuery.ajax({
-    	url:"$!{basePath}/weixin/back/weixinCommon/showMoalMessage.do",
+    	url:"$!{basePath}/weixin/back/weixinCommon/showMoalMessage",
     	type:"POST",
     	dataType: "json",
     	data:{
@@ -139,7 +139,7 @@ function showModal(msgType,templateId) {
 			} else if("news" == msgType) {
 				var html = "<iframe scrolling=\"yes\" id=\"showframe\" src=\"\" frameborder=\"0\" style=\"width:100%;height:320px;\"></iframe></div>";
 				$("#modalContent").html(html);
-				var  url = '$!{basePath}/weixin/back/weixinCommon/goMessage.do?newstemplateId='+data.obj;
+				var  url = '$!{basePath}/weixin/back/weixinCommon/goMessage?newstemplateId='+data.obj;
 				$("#showframe").attr("src",url);
 			}
 			$("#myModalButton").click();

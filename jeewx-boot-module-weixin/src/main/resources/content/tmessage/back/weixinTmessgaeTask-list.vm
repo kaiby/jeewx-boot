@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/tmessage/back/weixinTmessgaeTask/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/tmessage/back/weixinTmessgaeTask/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">列表</div>
@@ -50,7 +50,7 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/toAdd.do')" ><span class="glyphicon glyphicon-plus"></span> 新增</button></legend> 
+								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/toAdd')" ><span class="glyphicon glyphicon-plus"></span> 新增</button></legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -106,10 +106,10 @@
 																	#end
 																	##<td>$!dateTool.format("yyyy-MM-dd",$!{info.sendTime})</td>
 										                <td class="last">
-							                			<a class="btn btn-primary btn-xs" href="javascript:doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/toEdit.do?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
-							                			<a class="btn btn-danger btn-xs" href="javascript:delData('$!{basePath}/tmessage/back/weixinTmessgaeTask/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+							                			<a class="btn btn-primary btn-xs" href="javascript:doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/toEdit?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
+							                			<a class="btn btn-danger btn-xs" href="javascript:delData('$!{basePath}/tmessage/back/weixinTmessgaeTask/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
 							                			<a class="btn btn-success btn-xs" href="javascript:sendTemplateMsg('$!{info.id}')"><i class="fa fa-user"></i> 消息发送</a>
-							                			<a class="btn btn-warning btn-xs" href="javascript:doUrl('$!{basePath}/tmessage/back/weixinTmessageSendLog/list.do?taskId=$!{info.id}')" ><i class="fa fa-info"></i> 发送日志</a>
+							                			<a class="btn btn-warning btn-xs" href="javascript:doUrl('$!{basePath}/tmessage/back/weixinTmessageSendLog/list?taskId=$!{info.id}')" ><i class="fa fa-info"></i> 发送日志</a>
 						                				</td>
 									           		</tr>
 									             #end
@@ -151,7 +151,7 @@ function getCkValue(){
 //发送模板消息
 function sendTemplateMsg(taskId) {
 	jQuery.ajax({
-		url:'$!{basePath}/tmessage/back/weixinTmessgaeTask/sendTemplateMsg.do',
+		url:'$!{basePath}/tmessage/back/weixinTmessgaeTask/sendTemplateMsg',
 		type:'post',
 		dataType:'json',
 		data:{

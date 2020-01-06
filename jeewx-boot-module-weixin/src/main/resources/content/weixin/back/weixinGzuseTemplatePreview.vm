@@ -8,7 +8,7 @@
 	<input name="templateId" id="templateId" value="$!{templateId}" type="hidden" />
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinNewstemplate/getUserForTemplatePreview.do?templateId=$!{templateId}" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinNewstemplate/getUserForTemplatePreview?templateId=$!{templateId}" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 					  <div class="panel-body">
     			  		<div class="search">
@@ -137,7 +137,7 @@ function getCkValue(){
 	}
 	var templateId=$("#templateId").val();
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinNewstemplate/doPreview.do',
+		url:'$!{basePath}/weixin/back/weixinNewstemplate/doPreview',
 		type:'post',
 		data:{
 			openid:chk_value,

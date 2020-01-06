@@ -240,7 +240,7 @@ function delDataGrid(url){
 }
 
 function blockUser(id){
-	var url = '../rcOperateUser/blockUser.do?id='+id;
+	var url = '../rcOperateUser/blockUser?id='+id;
 	parent.layer.confirm('确认停用该用户吗？', {
 	    btn: ['确定','取消']//按钮
 //	    shade: false //不显示遮罩
@@ -278,7 +278,7 @@ function blockUser(id){
 }
 
 function unlockUser(id){
-	var url = '../rcOperateUser/unlockUser.do?id='+id;
+	var url = '../rcOperateUser/unlockUser?id='+id;
 	parent.layer.confirm('确认启用该用户吗？', {
 	    btn: ['确定','取消'] //按钮
 //	    shade: [0.3, '#393D49'] //不显示遮罩

@@ -65,7 +65,7 @@ public class WeixinNewsController extends BaseController{
 		StringBuffer requestURL = request.getRequestURL();  
 		StringBuffer tempContextUrl = requestURL.delete(requestURL.length() - request.getRequestURI().length(), requestURL.length()).append("");
 		String basePath = tempContextUrl.toString()+request.getContextPath();
-		String url = basePath + "/weixinNewsController/goContent.do?id="+id+"&jwid="+jwid;
+		String url = basePath + "/weixinNewsController/goContent?id="+id+"&jwid="+jwid;
 		velocityContext.put("url", url);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String createTime = sdf.format(newsItem.getCreateTime());

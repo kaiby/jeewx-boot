@@ -91,7 +91,7 @@ public class AccessSignInterceptor implements HandlerInterceptor {
 					}
 				}
 			}
-			String defaultUrl = basePath + "/system/noAuth.do";
+			String defaultUrl = basePath + "/system/noAuth";
 			logger.info("---------------SignInterceptor--------------没有权限---requestPath=" + requestPath);
 			redirectUrl404(requestPath, defaultUrl, response);
 			return false;

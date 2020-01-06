@@ -9,10 +9,10 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<button type="button" class="btn btn-primary" onclick="beforesubmit()" id="formSubmit"><span class="glyphicon glyphicon-ok"></span> 提交</button>
-					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 				</div>
 				<div class="panel-body">
-					<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/commonweixin/back/myJwWebJwid/doEdit.do" method="POST">
+					<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/commonweixin/back/myJwWebJwid/doEdit" method="POST">
 						 <input type="hidden" id="btn_sub" class="btn_sub" />
 						 <input type="hidden" value="$!{myJwWebJwid.id}" name="id" id="id" />
 						 <input type="hidden" value="$!{myJwWebJwid.authType}" name="authType" id="authType" />
@@ -117,7 +117,7 @@
 <link rel="stylesheet" href="$!{basePath}/plug-in/plugin/webuploader/css/webuploader.css" />
 <script>
 var opts={
-	url:"$!{basePath}/commonweixin/back/myJwWebJwid/doUpload.do"
+	url:"$!{basePath}/commonweixin/back/myJwWebJwid/doUpload"
 };
 
 $("#uploadify").uploader(opts,function(data){

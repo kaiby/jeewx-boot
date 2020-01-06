@@ -75,7 +75,7 @@
 	}
 	
 	function preview(itemId){
-		var url = "$!{basePath}/weixinNewsController/goContent.do?id="+itemId;
+		var url = "$!{basePath}/weixinNewsController/goContent?id="+itemId;
     	window.open(url);
 	}
 	function previewUrl(url){
