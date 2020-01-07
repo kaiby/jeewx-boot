@@ -87,7 +87,7 @@
 															<div class="yonghuming" style="width:170px;float:left;background-image:url('$!{basePath}/content/base/back/common/img/5.png')">
 																<input type="text" id="randCode" name="randCode" value="" placeholder="验证码" class="shurukuang" style="width:135px">
 															</div>
-															<div style="float:right;margin-top:14px"><img style="float:right;height:44px;width:110px;border:none" scr="javascript:location.href='/randCodeImage" id="randCodeImage"/> </div>
+															<div style="float:right;margin-top:14px"><img style="float:right;height:44px;width:110px;border:none" scr="javascript:location.href='/randomCode" id="randCodeImage"/> </div>
 														</div>
 														<input type="hidden" value="" id="jwid" name="jwid"/>
 														<div style="height:1px;clear:both"></div>
@@ -242,9 +242,9 @@ function selectJwid(){
 } 
 //验证码
 $(function() {
-	$("#randCodeImage").attr("src","$!{basePath}/randCodeImage?v="+new Date().getTime());
+	$("#randCodeImage").attr("src","$!{basePath}/randomCode?v="+new Date().getTime());
 	$("#randCodeImage").click(function(){
-		$("#randCodeImage").attr("src","$!{basePath}/randCodeImage?v="+new Date().getTime());
+		$("#randCodeImage").attr("src","$!{basePath}/randomCode?v="+new Date().getTime());
 	});
 	$(document).keyup(function(e){
 		var key=e.which;
@@ -288,7 +288,7 @@ function checkUser(){
 			}else{
 				//alert(data.msg);
 				layeralert(data.msg);
-				//$("#randCodeImage").attr("src","$!{basePath}/randCodeImage?v="+new Date().getTime());
+				//$("#randCodeImage").attr("src","$!{basePath}/randomCode?v="+new Date().getTime());
 			}
 		},  
         error: function(data, status, e){  

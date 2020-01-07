@@ -70,7 +70,7 @@ h1{ margin-top: 160px; color: #0096cd; font-family: "sans-serif"; font-size: 32p
 				<input type="text" name="username" id="username" class="form-control" placeholder="用户名" required autofocus style="background:url('../plug-in/css/images/u.png') 10px center no-repeat #fff; text-indent:30px;"> <br/>
 				<input type="password" name="password"  id="password"  class="form-control" placeholder="密码" required autofocus style="background:url('../plug-in/css/images/p.png') 10px center no-repeat #fff; text-indent:30px;margin-bottom:0"> <br/>
 				<input type="text" id="randCode" name="randCode" class="form-control" placeholder="验证码" required autofocus style="background:url('../plug-in/css/images/p.png') 10px center no-repeat #fff; text-indent:30px;width:170px;float:left">
-					<img style="float:left;margin-left:15px;height:44px;width:110px" scr="javascript:location.href='/randCodeImage" id="randCodeImage"/>
+					<img style="float:left;margin-left:15px;height:44px;width:110px" scr="javascript:location.href='/randomCode" id="randCodeImage"/>
 					<br/>
 					<div style="clear:both;height:1px"></div>
 				<label class="checkbox"> 
@@ -102,9 +102,9 @@ h1{ margin-top: 160px; color: #0096cd; font-family: "sans-serif"; font-size: 32p
 
 <script type="text/javascript">
 	$(function() {
-		$("#randCodeImage").attr("src","$!{basePath}/randCodeImage?v="+new Date().getTime());
+		$("#randCodeImage").attr("src","$!{basePath}/randomCode?v="+new Date().getTime());
 		$("#randCodeImage").click(function(){
-			$("#randCodeImage").attr("src","$!{basePath}/randCodeImage?v="+new Date().getTime());
+			$("#randCodeImage").attr("src","$!{basePath}/randomCode?v="+new Date().getTime());
 		});
 		$(document).keyup(function(e){
 			var key=e.which;
@@ -149,7 +149,7 @@ h1{ margin-top: 160px; color: #0096cd; font-family: "sans-serif"; font-size: 32p
 				,randCode:randCode
 		    },
 			success : function(data){
-				//$("#randCodeImage").attr("src","$!{basePath}/randCodeImage?v="+new Date().getTime());
+				//$("#randCodeImage").attr("src","$!{basePath}/randomCode?v="+new Date().getTime());
 				if(data.success){	
 				     if(data.obj!=""){
 				     	$("#jwid").val(data.obj);

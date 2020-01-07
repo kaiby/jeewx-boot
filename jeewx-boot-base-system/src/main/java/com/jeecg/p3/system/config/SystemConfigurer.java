@@ -18,7 +18,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.jeecg.p3.system.interceptors.AccessSignInterceptor;
 import com.jeecg.p3.system.interceptors.LoginInterceptor;
-import com.jeecg.p3.system.servlet.RandCodeImageServlet;
 
 @Configuration
 public class SystemConfigurer implements WebMvcConfigurer {
@@ -41,16 +40,6 @@ public class SystemConfigurer implements WebMvcConfigurer {
 	private String loginInterceptorExcludeUrls;
 	@Value("${jeewx.interceptor.excludeUrls.access-sign-interceptor}")
 	private String accessSignInterceptorExcludeUrls;
-	
-	/**
-	 * 登录验证码
-	 */
-	@Bean
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-    public ServletRegistrationBean randCodeImageServlet() {
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new RandCodeImageServlet(), "/randCodeImage");
-        return servletRegistrationBean;
-    }
 	
 	/**
 	 * 拦截器（登录 + 签名）
