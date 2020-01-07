@@ -31,7 +31,7 @@ public class OSSMinioUtil {
     private static String accessKey;
     private static String secretKey;
     private static String bucketName;
-    private static String imgDomain;
+    private static String fileDomain;
 
     public static void setEndpoint(String endpoint) {
         OSSMinioUtil.endpoint = endpoint;
@@ -49,8 +49,8 @@ public class OSSMinioUtil {
         OSSMinioUtil.bucketName = bucketName;
     }
 
-    public static void setImgDomain(String imgDomain) {
-        OSSMinioUtil.imgDomain = imgDomain;
+    public static void setFileDomain(String fileDomain) {
+        OSSMinioUtil.fileDomain = fileDomain;
     }
 
     /**
@@ -80,14 +80,14 @@ public class OSSMinioUtil {
         }
         fileUrl = fileUrl.append(fileDir + fileName);
 
-        if (oConvertUtils.isNotEmpty(imgDomain)) {
-            FILE_URL = imgDomain + "/" + fileUrl;
+        if (oConvertUtils.isNotEmpty(fileDomain)) {
+            FILE_URL = fileDomain + "?filePath=" + fileUrl;
         } else {
             FILE_URL = "https://" + bucketName + "." + endpoint + "/" + fileUrl;
         }
 
         try {
-            minioClient.putObject(bucketName, fileName, file.getInputStream(), file.getSize(), null, null, "application/octet-stream");
+            minioClient.putObject(bucketName, fileUrl.toString(), file.getInputStream(), file.getSize(), null, null, "application/octet-stream");
         } catch (Exception e) {
             e.printStackTrace();
             logger.info("------OSS文件上传失败------", e);
@@ -118,8 +118,8 @@ public class OSSMinioUtil {
         }
         fileUrl = fileUrl.append(fileDir + fileName);
 
-        if (oConvertUtils.isNotEmpty(imgDomain)) {
-            FILE_URL = imgDomain + "/" + fileUrl;
+        if (oConvertUtils.isNotEmpty(fileDomain)) {
+            FILE_URL = fileDomain + "/" + fileUrl;
         } else {
             FILE_URL = "https://" + bucketName + "." + endpoint + "/" + fileUrl;
         }

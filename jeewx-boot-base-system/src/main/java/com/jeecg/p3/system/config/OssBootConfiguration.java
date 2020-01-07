@@ -32,6 +32,9 @@ public class OssBootConfiguration {
     @Value("${minio.bucketName}")
     private String minioBucketName;
 
+    @Value("${minio.fileDomain}")
+    private String fileDomain;
+
 
     @Bean
     public void initStatic() {
@@ -45,6 +48,6 @@ public class OssBootConfiguration {
         OSSMinioUtil.setAccessKey(minioAccessKey);
         OSSMinioUtil.setSecretKey(minioSecretKey);
         OSSMinioUtil.setBucketName(minioBucketName);
-        OSSMinioUtil.setImgDomain(imgDomain);
+        OSSMinioUtil.setFileDomain(fileDomain);
     }
 }

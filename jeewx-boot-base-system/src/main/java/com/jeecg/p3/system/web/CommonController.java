@@ -137,9 +137,9 @@ public class CommonController {
 	//update-end--Author:zhangweijian  Date: 20180821 for：发送手机验证码
 
 
-	@SkipAuth(auth= SkipPerm.SKIP_SIGN)
-	@RequestMapping(value = "getOOSFile/{filePath}", method ={RequestMethod.GET,RequestMethod.POST})
-	public ResponseEntity<InputStreamResource> getOOSFile(@PathVariable(value = "filePath") String filePath) throws Exception {
+	@SkipAuth(auth= SkipPerm.SKIP_ALL)
+	@RequestMapping(value = "getOOSFile", method ={RequestMethod.GET,RequestMethod.POST})
+	public ResponseEntity<InputStreamResource> getOOSFile(@RequestParam(value = "filePath") String filePath) throws Exception {
 
 		InputStream inputStream = OSSMinioUtil.download(filePath);
 		if (inputStream != null) {
