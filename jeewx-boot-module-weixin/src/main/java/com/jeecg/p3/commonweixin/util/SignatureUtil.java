@@ -139,7 +139,7 @@ public abstract class SignatureUtil {
 	}
     
     public static void main(String[] args) {
-    	String url = "http://www.saphao.com:9999/P3-Web/commonxrs/toIndex.do?actId=402880ee51334a520151334c3eaf0001&openid=oR0jFt_DTsAUJebWqGeq3A1VWfRw&nickname=JEFF&subscribe=1&jwid=&sign=F5E56A64B650A98E67CCCFFF871C7133";
+    	String url = "http://www.saphao.com:9999/P3-Web/commonxrs/toIndex?actId=402880ee51334a520151334c3eaf0001&openid=oR0jFt_DTsAUJebWqGeq3A1VWfRw&nickname=JEFF&subscribe=1&jwid=&sign=F5E56A64B650A98E67CCCFFF871C7133";
     	Map<String,String> t = getSignMap(url);
     	for(Map.Entry<String, String> entry:t.entrySet()){    
     	     System.out.println(entry.getKey()+"--->"+entry.getValue());    

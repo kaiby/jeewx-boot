@@ -7,11 +7,11 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsRelation/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsRelation/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 					<div class="panel panel-default">
 						<div class="panel-heading" style="34px">
-							<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+							<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 							<div style="height:1px;clear:both"></div>
 						</div>
 						<div class="panel-body">
@@ -67,7 +67,7 @@
 													<td>$!dateTool.format("yyyy-MM-dd HH:mm:ss",$!{info.starttime})&nbsp;~
 										            	</br>$!dateTool.format("yyyy-MM-dd HH:mm:ss",$!{info.endtime})
 													</td>
-													<td><a class="btn btn-success btn-xs" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRelation/toSetCount.do?id=$!{info.id}')"><i class="fa fa-pencil"></i> 修改数量</a></td>
+													<td><a class="btn btn-success btn-xs" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRelation/toSetCount?id=$!{info.id}')"><i class="fa fa-pencil"></i> 修改数量</a></td>
 									      		</tr>
 											#end
 										#end

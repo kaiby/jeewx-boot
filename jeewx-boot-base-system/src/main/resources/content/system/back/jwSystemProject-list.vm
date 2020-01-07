@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/system/back/jwSystemProject/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/system/back/jwSystemProject/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 					<div class="panel panel-default">
 					  <div class="panel-heading">插件项目列表</div>
@@ -42,7 +42,7 @@
 								  <div class="clearfix"></div>
 					  		</div>
 					  		<div id="legend">
-					          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/system/back/jwSystemProject/toAdd.do')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>
+					          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/system/back/jwSystemProject/toAdd')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>
 							  <button type="button" class="btn btn-danger" onclick="updateUrl();" ><span class="glyphicon glyphicon-refresh"></span> 变更平台域名</button>
 							  ##<button type="button" class="btn btn-danger" onclick="updateType();" ><span class="glyphicon glyphicon-retweet"></span> 变更本地授权(重置活动地址)</button></legend> 
 					        </div>
@@ -67,8 +67,8 @@
 											</td>
 											##<td>$!{info.applicationType}</td>
 							                <td class="last">
-					                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/system/back/jwSystemProject/toEdit.do?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
-					                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/system/back/jwSystemProject/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+					                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/system/back/jwSystemProject/toEdit?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
+					                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/system/back/jwSystemProject/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
 			                				</td>
 						           		</tr>
 						             #end
@@ -148,7 +148,7 @@ function doupdate(){
           btn: ['确定','取消'] //按钮
         }, function(){
           	jQuery.ajax({
-                url:"$!{basePath}/system/back/jwSystemProject/changeUrl.do",
+                url:"$!{basePath}/system/back/jwSystemProject/changeUrl",
                 type:"POST",
                 dataType:"JSON",
                 data:{
@@ -180,7 +180,7 @@ function updateType(){
           btn: ['确定','取消'] //按钮
     }, function(){
       	jQuery.ajax({
-            url:"$!{basePath}/system/back/jwSystemProject/changeType.do",
+            url:"$!{basePath}/system/back/jwSystemProject/changeType",
             type:"POST",
             dataType:"JSON",
             data:{

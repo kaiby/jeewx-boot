@@ -738,7 +738,7 @@ public class NewGoldeneggController {
 			//---update-end-zhaofei---Date:20190812----for:替换去核销url域名----
 
 			String shortUrl=WeiXinHttpUtil.getShortUrl(hdUrl,SystemGoldProperties.defaultJwid);
-			//hdurl="http://192.168.1.146:8080/P3-Web/goldeneggs/new/toVerificationreview.do?actId="+actId+"&jwid="+jwid+"&openid=123456&appid=wx6596a35fea9085d4&awd="+cardPsd;
+			//hdurl="http://192.168.1.146:8080/P3-Web/goldeneggs/new/toVerificationreview?actId="+actId+"&jwid="+jwid+"&openid=123456&appid=wx6596a35fea9085d4&awd="+cardPsd;
 			LOG.info("二维码生成连接:" + hdUrl);
 
 			j.setSuccess(true);
@@ -765,7 +765,7 @@ public class NewGoldeneggController {
 	public void getVerificationreview(@ModelAttribute WeixinDto weixinDto,
 			HttpServletRequest request, HttpServletResponse response){
 		// 参数验证
-		//http://192.168.1.146:8080/P3-Web/goldeneggs/new/toVerificationreview.do?actId=4028811266a3cdde0166a3f446f70008&jwid=gh_20419b74f848&openid=123456&appid=wx6596a35fea9085d4&awd=jWHBH9BT0raV
+		//http://192.168.1.146:8080/P3-Web/goldeneggs/new/toVerificationreview?actId=4028811266a3cdde0166a3f446f70008&jwid=gh_20419b74f848&openid=123456&appid=wx6596a35fea9085d4&awd=jWHBH9BT0raV
 		validateWeixinDtoParam(weixinDto);
 		String cardPsd=request.getParameter("awd");
 		String actId=weixinDto.getActId();

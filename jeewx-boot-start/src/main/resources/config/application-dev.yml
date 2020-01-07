@@ -8,13 +8,13 @@ server:
 
 spring:
     # 设置静态文件路径，js,css等
-    mvc:
-         pathmatch:
-            use-suffix-pattern: false
-            use-registered-suffix-pattern: true
-         contentnegotiation:
-            favor-path-extension: false
-         static-path-pattern: /**
+    #mvc:
+    #     pathmatch:
+    #        use-suffix-pattern: false
+    #        use-registered-suffix-pattern: true
+    #     contentnegotiation:
+    #        favor-path-extension: false
+    #     static-path-pattern: /**
     resource:
          static-locations: classpath:/static/,classpath:/public/
     jackson:
@@ -31,7 +31,7 @@ spring:
           #基本属性
           url: jdbc:mysql://127.0.0.1:3306/wx_boot?characterEncoding=UTF-8&useUnicode=true&useSSL=false
           username: root
-          password: w7W64I2IMY0J
+          password: root
           #配置初始化大小/最小/最大
           initial-size: 1
           min-idle: 1
@@ -63,13 +63,13 @@ jeewx:
        is-open: true
        #排除拦截URL
        excludeUrls:
-         login-interceptor: /system/back/article/toIndex.do,/system/back/article/toArticle.do,/system/preSelectJwid.do,/system/back/home.do,/system/back/jwSystemAccountAPI/getUserAccountAmount.do,/back/backIndex/home.do
-         access-sign-interceptor: /wechatController.do,/weixinLinksucai/link.do,/linksucai/link.do,/fx/mall/payCallBack.do,/newsController/getNewsClassify.do,/newsController/getNewslist.do,/CommonController/sendMsgCode.do,/api/eshop/**
+         login-interceptor: /system/back/article/toIndex,/system/back/article/toArticle,/system/preSelectJwid,/system/back/home,/system/back/jwSystemAccountAPI/getUserAccountAmount,/back/backIndex/home
+         access-sign-interceptor: /wechatController,/weixinLinksucai/link,/linksucai/link,/fx/mall/payCallBack,/newsController/getNewsClassify,/newsController/getNewslist,/CommonController/sendMsgCode,/api/eshop/**
     #Redis缓存配置
     redis:
        ip: 127.0.0.1
        port: 6379
-       password: O2Tu9&66f
+       password: 
        pool:
           maxTotal: 1024
           maxIdle: 200

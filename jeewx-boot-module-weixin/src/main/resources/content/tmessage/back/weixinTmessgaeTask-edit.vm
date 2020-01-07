@@ -9,10 +9,10 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 	        	<button type="button" class="btn btn-primary" id="formSubmit" onclick="doSubmit()"><span class="glyphicon glyphicon-ok"></span> 保存</button>
-				<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+				<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/tmessage/back/weixinTmessgaeTask/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 				</div>
 					<div class="panel-body">
-						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/tmessage/back/weixinTmessgaeTask/doEdit.do" method="POST">
+						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/tmessage/back/weixinTmessgaeTask/doEdit" method="POST">
 					  		<input type="hidden" id="btn_sub" class="btn_sub" />
 					  		<input type="hidden" id="id" name="id" value="$!{weixinTmessgaeTask.id}" />
 					  		<div class="form-group mno">
@@ -197,7 +197,7 @@
 	
 	//打开用户选择列表模态框
 	function getUser(){
-	    $("#showframe").attr("src","$!{basePath}/tmessage/back/weixinTmessgaeTask/getUser.do");
+	    $("#showframe").attr("src","$!{basePath}/tmessage/back/weixinTmessgaeTask/getUser");
 	    $("#myModalButton").click();
 	}
 	
@@ -205,7 +205,7 @@
 	function templateChange() {
 		var templateId = $("#templateId").find("option:selected").val();
 		jQuery.ajax({
-			url:'$!{basePath}/tmessage/back/weixinTmessgaeTask/getTemplateInfo.do',
+			url:'$!{basePath}/tmessage/back/weixinTmessgaeTask/getTemplateInfo',
 			type:'post',
 			dataType:'json',
 			data:{
@@ -232,7 +232,7 @@
 	function getDataJson() {
 		var taskId = $("#id").val();
 		jQuery.ajax({
-			url:'$!{basePath}/tmessage/back/weixinTmessgaeTask/getDataJson.do',
+			url:'$!{basePath}/tmessage/back/weixinTmessgaeTask/getDataJson',
 			type:'post',
 			dataType:'json',
 			data:{

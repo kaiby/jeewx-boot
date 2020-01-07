@@ -1,7 +1,7 @@
 var basePath=$("#basePath").val();
 $(function(){
 	jQuery.ajax({
-		url:basePath +"/weixin/back/weixinCommon/checkPermission.do",
+		url:basePath +"/weixin/back/weixinCommon/checkPermission",
 		type:"POST",
 		dataType:"JSON",
 		data:{},

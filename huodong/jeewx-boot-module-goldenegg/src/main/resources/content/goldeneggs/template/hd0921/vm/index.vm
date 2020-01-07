@@ -344,8 +344,8 @@ $!{huodong_bottom_copyright}
         urls: {
             verify: "", // 短信验证
             user: "", // 用户注册
-            win: "../../goldeneggs/new/toAward.do?actId=$!{goldeneggs.id}&openid=$!{weixinDto.openid}&jwid=$!{weixinDto.jwid}&appid=$!{weixinDto.appid}", // 砸金蛋
-            take: "../../goldeneggs/new/toCheck.do?actId=$!{goldeneggs.id}&openid=$!{weixinDto.openid}&jwid=$!{weixinDto.jwid}&appid=$!{weixinDto.appid}",  // 判断
+            win: "../../goldeneggs/new/toAward?actId=$!{goldeneggs.id}&openid=$!{weixinDto.openid}&jwid=$!{weixinDto.jwid}&appid=$!{weixinDto.appid}", // 砸金蛋
+            take: "../../goldeneggs/new/toCheck?actId=$!{goldeneggs.id}&openid=$!{weixinDto.openid}&jwid=$!{weixinDto.jwid}&appid=$!{weixinDto.appid}",  // 判断
             exchange: "" // 兑奖
         },
         imgs: {
@@ -372,7 +372,7 @@ $!{huodong_bottom_copyright}
 	    $("#code").val(code);
 	    $("#prizesCode").html("兑奖码："+code);
 		jQuery.ajax({
-       		url:"../../goldeneggs/new/queryGoldeneggsRecord.do",
+       		url:"../../goldeneggs/new/queryGoldeneggsRecord",
        		method:"POST",
        		dataType:"JSON",
        		data:{code:code},
@@ -420,14 +420,14 @@ $!{huodong_bottom_copyright}
 			var openid=$("#openid").val();
 			var code=$("#code").val();
 			jQuery.ajax({
-	       		url:"../../goldeneggs/new/saveGoldEggPrize.do",
+	       		url:"../../goldeneggs/new/saveGoldEggPrize",
 	       		method:"POST",
 	       		dataType:"JSON",
 	       		data:{mobile:tel,username:name,address:adr,code:code},
 	       		success:function(data){
 	       		   if(data.success){
 	       		   		alert("提交成功，谢谢参与！");
-	       			   	url="../../goldeneggs/new/toGoldenegg.do";
+	       			   	url="../../goldeneggs/new/toGoldenegg";
 			       location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid;
 	       		   }else{
 	       		   		alert(data.msg);
@@ -495,7 +495,7 @@ function audioAutoPlay(id){
 //查询中奖记录
 function queryWinList(){
 		jQuery.ajax({
-			url:'../../goldeneggs/new/queryWinList.do',
+			url:'../../goldeneggs/new/queryWinList',
 			async:false,
 			data:{
 				actId:actId,
@@ -610,7 +610,7 @@ function queryWinList(){
 	//分享回调
 	var fxCallback=function(type){
 		jQuery.ajax({
-			url:'$!{basePath}/goldeneggs/new/fxCallback.do',
+			url:'$!{basePath}/goldeneggs/new/fxCallback',
 			type:'post',
 			dataType:'json',
 			data:{
@@ -671,7 +671,7 @@ function getVerification(){
 	var jwid=$("#jwid").val();
 	var openid=$("#openid").val();
 	jQuery.ajax({
-		url:"$!{basePath}/goldeneggs/new/getVerificationUrl.do",
+		url:"$!{basePath}/goldeneggs/new/getVerificationUrl",
 		type:"POST",
 		dataType:"JSON",
 		data:{

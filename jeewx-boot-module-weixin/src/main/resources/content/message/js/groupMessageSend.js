@@ -43,7 +43,7 @@ $(".c_tree i").click(function(){
 	var id=$(this).attr("id");
 	checkedPic=id;  //获取群发消息的类型
 	var message = "";
-	var url =basePath+"/message/back/weixinGroupMessageSendLog/getAllUploadNewsTemplate.do?";
+	var url =basePath+"/message/back/weixinGroupMessageSendLog/getAllUploadNewsTemplate?";
 	if(id=="text"){
 	    var htmlContent ="<textarea class='wz' placeholder='请输入内容' name='param' id='param' onkeyup='checkWords(this)'></textarea>";
 	    $(".c_bj").html(htmlContent);
@@ -127,7 +127,7 @@ function checkedNews(key){
 function sure(){
 	templateId=$("#Template").val();
 	jQuery.ajax({
-		url:basePath+"/weixin/back/weixinNewsitem/getNewsTempate.do",
+		url:basePath+"/weixin/back/weixinNewsitem/getNewsTempate",
 		type:'post',
 		data:{templateId:templateId},
 		dataType:'json',
@@ -200,7 +200,7 @@ $("#sendMessage").click(function(){
 			layer.close(index);
 			layer.load(1,{shade: [0.5, '#393D49']});
 			jQuery.ajax({
-				url:basePath+"/message/back/sendGroupMessageController/sendGroupMessage.do",
+				url:basePath+"/message/back/sendGroupMessageController/sendGroupMessage",
 				type:'post',
 				data:{
 					msgType:msgType,

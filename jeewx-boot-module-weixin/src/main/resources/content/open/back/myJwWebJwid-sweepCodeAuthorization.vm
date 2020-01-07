@@ -32,7 +32,7 @@ padding-top: 40px;
 <body ng-app="wxast" ng-controller="mainCtrl" class="ng-scope" style="overflow-x:hidden;">
 <div id="wxAstContainer">
 	<div id="wxAstBody">
-		<button type="button" class="btn btn-default"  id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+		<button type="button" class="btn btn-default"  id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 		<div id="wxAstContent" >
 			<div class="startContainer ng-scope" ng-controller="startCtrl" ng-init="initStartData(2,'wx2743d8ef30ecd86c','97861','i.mp.fkw.com','i.fkw.com')">
 				<h1 class="startTitle">立即使用公众号助手</h1>
@@ -73,7 +73,7 @@ padding-top: 40px;
 <script type="text/javascript">
 function getAuthhorizationUrl(){
 	jQuery.ajax({
-		url: "$!{basePath}/commonweixin/back/myJwWebJwid/getAuthhorizationUrl.do",
+		url: "$!{basePath}/commonweixin/back/myJwWebJwid/getAuthhorizationUrl",
 		type:"POST",
 		dataType: "json",
 		async:false,
@@ -91,7 +91,7 @@ function getAuthhorizationUrl(){
 	});
 }
 function refresh(){
-	location.href='$!{basePath}/commonweixin/back/myJwWebJwid/list.do';
+	location.href='$!{basePath}/commonweixin/back/myJwWebJwid/list';
 }
 function doUrl(url){
 location.href=url;

@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinGzuser/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinGzuser/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 					<div class="panel panel-default">
 					  <div class="panel-heading">关注用户信息</div>
@@ -218,7 +218,7 @@ function getCkValue(){
   //获取当前的openid
   var openid=$("#tag_openid").val();
   jQuery.ajax({
-  	url:'$!{basePath}/weixin/back/weixinTag/addTags.do',
+  	url:'$!{basePath}/weixin/back/weixinTag/addTags',
 	type:'post',
 	data:{tags:chk_value,openid:openid},
 	dataType:'json',
@@ -235,7 +235,7 @@ function getCkValue(){
 //粉丝同步
 function syncFans(){
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinGzuser/syncFans.do',
+		url:'$!{basePath}/weixin/back/weixinGzuser/syncFans',
 		type:'post',
 		dataType:'json',
 		success:function(data){
@@ -254,7 +254,7 @@ function syncFans(){
 function getTags(openid){
 	$("#tag_openid").val(openid);
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinTag/getTags.do',
+		url:'$!{basePath}/weixin/back/weixinTag/getTags',
 		type:'post',
 		data:{openid:openid},
 		dataType:'json',

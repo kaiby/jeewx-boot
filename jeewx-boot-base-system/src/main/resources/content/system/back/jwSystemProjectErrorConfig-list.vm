@@ -5,7 +5,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/system/back/jwSystemProjectErrorConfig/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/system/back/jwSystemProjectErrorConfig/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">404跳转规则配置列表</div>
@@ -21,7 +21,7 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/system/back/jwSystemProjectErrorConfig/toAdd.do')" >新增</button></legend> 
+								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/system/back/jwSystemProjectErrorConfig/toAdd')" >新增</button></legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -38,8 +38,8 @@
 																	<td>$!{info.name}</td>
 																	<td>$!{info.redirectUrl}</td>
 										                <td class="last">
-							                			<a href="javascript:doUrl('$!{basePath}/system/back/jwSystemProjectErrorConfig/toEdit.do?id=$!{info.id}')" >编辑</a>
-							                			<a href="javascript:delData('$!{basePath}/system/back/jwSystemProjectErrorConfig/doDelete.do?id=$!{info.id}')">删除</a>
+							                			<a href="javascript:doUrl('$!{basePath}/system/back/jwSystemProjectErrorConfig/toEdit?id=$!{info.id}')" >编辑</a>
+							                			<a href="javascript:delData('$!{basePath}/system/back/jwSystemProjectErrorConfig/doDelete?id=$!{info.id}')">删除</a>
 						                				</td>
 									           		</tr>
 									             #end

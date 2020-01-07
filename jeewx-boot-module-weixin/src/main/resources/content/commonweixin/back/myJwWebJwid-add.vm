@@ -9,10 +9,10 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<button type="button" class="btn btn-primary" onclick="beforesubmit()" id="formSubmit"><span class="glyphicon glyphicon-ok"></span> 提交</button>
-					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 				</div>
 					<div class="panel-body">
-						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/commonweixin/back/myJwWebJwid/doAdd.do" method="POST">
+						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/commonweixin/back/myJwWebJwid/doAdd" method="POST">
 					  		<input type="hidden" id="btn_sub" class="btn_sub" />
                             <div>
                                 <span style="color:#f00;text-indent:1em">温馨提示：</span>
@@ -26,7 +26,7 @@
                                 <span style="color:#f00;text-indent:1em">4.授权后的公众号获取TOKEN需要配置IP白名单，请关注“H5活动之家”公众号，回复“白名单”获取。</span>
 								<br/>
 								 <span style="color:#f00;text-indent:1em">了解详细使用方法，请阅读 </span>
-								<a href="http://www.h5huodong.com/system/back/article/toArticle.do?code=ff8080815a91fa1b015a93b9cbaf00b9#temp_ff8080815a91fa1b015a93b9cbaf00b9" target="_blank">
+								<a href="http://www.h5huodong.com/system/back/article/toArticle?code=ff8080815a91fa1b015a93b9cbaf00b9#temp_ff8080815a91fa1b015a93b9cbaf00b9" target="_blank">
 									配置方法
 								</a>
 							</div>
@@ -121,7 +121,7 @@
 <link rel="stylesheet" href="$!{basePath}/plug-in/plugin/webuploader/css/webuploader.css" />
 <script>
 var opts={
-	url:"$!{basePath}/commonweixin/back/myJwWebJwid/doUpload.do"
+	url:"$!{basePath}/commonweixin/back/myJwWebJwid/doUpload"
 };
 
 $("#uploadify").uploader(opts,function(data){

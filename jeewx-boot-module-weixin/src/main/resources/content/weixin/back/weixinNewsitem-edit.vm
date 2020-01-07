@@ -75,7 +75,7 @@
  		<div class="media_edit_area" id="js_appmsg_editor" style="width:98%">	
  			<div class="appmsg_editor" style="margin-top: 0px;">
 	 			<div class="inner" style="padding:0;min-height:400px;height:100%;background-color:#fff">
-				    <form id="dailogForm" role="form" action="$!{basePath}/weixin/back/weixinNewsitem/doEdit.do"  name="dailogForm" method="post">
+				    <form id="dailogForm" role="form" action="$!{basePath}/weixin/back/weixinNewsitem/doEdit"  name="dailogForm" method="post">
 					<input type="hidden" id="btn_sub" class="btn_sub"/>
 					<input id="id" name="id" type="hidden" value="$!{weixinNewsitem.id}">
 					<input id="newstemplateId" name="newstemplateId" type="hidden" value="$!{weixinNewsitem.newstemplateId}">
@@ -364,7 +364,7 @@ function previewboxShow(flag){
 //初始化单个样式库
 var mySheetTemplate = "";
 function initMySheetTemplate(flag){
-	var url= "$!{basePath}/weixin/back/weixinNewsitem/getMySheet.do";
+	var url= "$!{basePath}/weixin/back/weixinNewsitem/getMySheet";
 	jQuery.ajax({
 	  url :url,
 	  type:'post',
@@ -392,7 +392,7 @@ function changeMySheet(type,obj){
 		$(obj).addClass("current");
 		$(obj).closest("li").siblings().find("a").removeClass("current");
 	}
-	var url= "$!{basePath}/weixin/back/weixinNewsitem/getTemplate.do?type="+type;
+	var url= "$!{basePath}/weixin/back/weixinNewsitem/getTemplate?type="+type;
 	jQuery.ajax({
       	url :url,
     	type:'post',

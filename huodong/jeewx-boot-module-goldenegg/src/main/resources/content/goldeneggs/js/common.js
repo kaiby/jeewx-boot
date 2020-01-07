@@ -51,7 +51,7 @@ function jiugong(){
 	if (click) {
 		return false;
 	}else{		
-		var url = "../jiugongge/getAwards.do";
+		var url = "../jiugongge/getAwards";
 		$.ajax({
 			url : url,
 			type:"post",

@@ -5,7 +5,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinNewsitem/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/weixin/back/weixinNewsitem/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">列表</div>
@@ -75,7 +75,7 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/weixin/back/weixinNewsitem/toAdd.do')" >新增</button></legend> 
+								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/weixin/back/weixinNewsitem/toAdd')" >新增</button></legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -110,8 +110,8 @@
 																	<td>$!dateTool.format("yyyy-MM-dd",$!{info.createTime})</td>
 																	<td>$!dateTool.format("yyyy-MM-dd",$!{info.updateTime})</td>
 										                <td class="last">
-							                			<a href="javascript:doUrl('$!{basePath}/weixin/back/weixinNewsitem/toEdit.do?id=$!{info.id}')" >编辑</a>
-							                			<a href="javascript:delData('$!{basePath}/weixin/back/weixinNewsitem/doDelete.do?id=$!{info.id}')">删除</a>
+							                			<a href="javascript:doUrl('$!{basePath}/weixin/back/weixinNewsitem/toEdit?id=$!{info.id}')" >编辑</a>
+							                			<a href="javascript:delData('$!{basePath}/weixin/back/weixinNewsitem/doDelete?id=$!{info.id}')">删除</a>
 						                				</td>
 									           		</tr>
 									             #end

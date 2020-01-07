@@ -29,7 +29,7 @@ public class SystemConfigurer implements WebMvcConfigurer {
 	private String staticLocations;
 
 	/**默认拦截器排除资源*/
-	private List<String> EXCLUDE_PATHS= Arrays.asList("/plug-in/**","/content/**","/upload/**","/system/*.do","/error");
+	private List<String> EXCLUDE_PATHS= Arrays.asList("/plug-in/**","/content/**","/upload/**","/system/*","/error");
 	@Autowired
     private LoginInterceptor loginInterceptor;
 	@Autowired
@@ -69,7 +69,7 @@ public class SystemConfigurer implements WebMvcConfigurer {
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/system/login.do");
+        registry.addViewController("/").setViewName("redirect:/system/login");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 

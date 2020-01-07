@@ -4,7 +4,7 @@
 function initUpload(basePath){
       'use strict';
     // Change this to the location of your server-side upload handler:
-        var url = basePath+"/weixin/back/weixinNewsitem.do?doUpload",
+        var url = basePath+"/weixin/back/weixinNewsitem?doUpload",
         uploadButton = $('<button/>')
             .attr("type","button")
             .addClass('btn btn-primary')

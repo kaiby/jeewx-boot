@@ -11,7 +11,7 @@
             <ul class="nav navbar-top-links navbar-right">
                    
                     <li class="dropdown hidden-xs">
-                    	<a class="" aria-expanded="false" href="javascript:void(0)" onclick="preLogin('$!{basePath}/system/back/preSelectJwid.do','请选择公众号')">
+                    	<a class="" aria-expanded="false" href="javascript:void(0)" onclick="preLogin('$!{basePath}/system/back/preSelectJwid','请选择公众号')">
                            <span><i class="fa fa-wechat" style="color:#1ab394"></i>$!{jwidname}<b class="caret"></b></span>
                         </a>
                     </li>
@@ -22,7 +22,7 @@
                     </li>
                     
                       <li class="dropdown hidden-xs">
-                        <a class="" aria-expanded="false" href="$!{basePath}/system/logout.do">
+                        <a class="" aria-expanded="false" href="$!{basePath}/system/logout">
                             <i class="fa fa fa-sign-out" style="color:#1ab394"></i> 退出
                         </a>
                     </li>
@@ -34,7 +34,7 @@
         </button>
         <nav class="page-tabs J_menuTabs">
             <div class="page-tabs-content">
-                <a href="javascript:;" class="active J_menuTab" data-id="$!{basePath}/system/back/home.do">首页</a>
+                <a href="javascript:;" class="active J_menuTab" data-id="$!{basePath}/system/back/home">首页</a>
             </div>
         </nav>
         <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
@@ -53,10 +53,10 @@
                 </li>
             </ul>
         </div>
-        <!-- <a href="$!{basePath}/system/logout.do" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a> -->
+        <!-- <a href="$!{basePath}/system/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a> -->
     </div>
     <div class="row J_mainContent" id="content-main">
-        <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="$!{basePath}/system/back/home.do" frameborder="0" data-id="$!{basePath}/system/back/home.do" seamless=""></iframe>
+        <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="$!{basePath}/system/back/home" frameborder="0" data-id="$!{basePath}/system/back/home" seamless=""></iframe>
     </div>
     <div class="footer">
         <div class="pull-right">服务热线 ： 4008109889 &nbsp;&nbsp;&nbsp;&nbsp;|   &nbsp;&nbsp; ©<a href="https://www.ctyun.cn/" target="_blank">天翼云</a></div>
@@ -125,7 +125,7 @@
 			jwid = '';
 		}
 		jQuery.ajax({
-			url : '$!{basePath}/system/back/switchDefaultOfficialAcco.do',
+			url : '$!{basePath}/system/back/switchDefaultOfficialAcco',
 			cache : false,
 			data : {
 				jwid : jwid

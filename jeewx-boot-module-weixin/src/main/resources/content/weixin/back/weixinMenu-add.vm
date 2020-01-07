@@ -9,10 +9,10 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 	        	<button type="button" class="btn btn-primary" id="formSubmit" onclick="beforesubmit()"><span class="glyphicon glyphicon-ok"></span> 保存</button>
-				<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/weixin/back/weixinMenu/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+				<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/weixin/back/weixinMenu/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 				</div>
 					<div class="panel-body">
-						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/weixin/back/weixinMenu/doAdd.do" method="POST">
+						<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/weixin/back/weixinMenu/doAdd" method="POST">
 					  		<input type="hidden" id="btn_sub" class="btn_sub" />
 													<div class="form-group mno">
 													    <label for="inputEmail3" class="col-sm-1 control-label" style="text-align:left;">菜单名称</label>
@@ -175,7 +175,7 @@ $("#msgtype").change(function(){
 //获取素材信息
 function getsucaiList(msgType){
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinCommon/getsucaiList.do',
+		url:'$!{basePath}/weixin/back/weixinCommon/getsucaiList',
 		type:'post',
 		dataType:'json',
 		data:{msgType:msgType},

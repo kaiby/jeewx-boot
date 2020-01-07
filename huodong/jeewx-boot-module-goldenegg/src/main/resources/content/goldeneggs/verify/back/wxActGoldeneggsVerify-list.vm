@@ -7,11 +7,11 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/list.do?actId=$!{ActId}" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/list?actId=$!{ActId}" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								<div class="panel-heading">
-									<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+									<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 									<div style="height:1px;clear:both"></div>
 								</div>
 								  <div class="panel-body">
@@ -34,7 +34,7 @@
 								  		</div>
 								  		<div id="legend">
 								          <legend  class="le">
-								          <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/toAdd.do?actId=$!{ActId}')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>
+								          <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/toAdd?actId=$!{ActId}')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>
 								          </legend> 
 								        </div>
 								        <table class="table table-striped">
@@ -64,9 +64,9 @@
 																	#end
 																	</td>
 										                <td class="last">
-							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/toEdit.do?id=$!{info.id}&actId=${info.actId}')" ><i class="fa fa-edit"></i> 编辑</a>
-							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
-							                			##<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/toDetail.do?id=$!{info.id}')" style="background-color: #1e90ff;border-color: #1e90ff"><i class="fa fa-th-list"></i> 详情</a>
+							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/toEdit?id=$!{info.id}&actId=${info.actId}')" ><i class="fa fa-edit"></i> 编辑</a>
+							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+							                			##<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/toDetail?id=$!{info.id}')" style="background-color: #1e90ff;border-color: #1e90ff"><i class="fa fa-th-list"></i> 详情</a>
 							                			#if($!{info.status}=='1')
 										           		<a class="btn btn-xs btn-success" href="javascript:doEditStatus('$!{info.id}','0')" style="background-Color:#0078cd;border:none"><i class="fa fa-check-circle"></i> 启用</a>
 								                		#end
@@ -104,7 +104,7 @@ function doEditStatus(id,status){
     		}, function(){
 			jQuery.ajax({
         		type:'post',
-        		url:"$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/doEditStatus.do",
+        		url:"$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/doEditStatus",
         		dataType:'json',
         		data:{
        				id:id,

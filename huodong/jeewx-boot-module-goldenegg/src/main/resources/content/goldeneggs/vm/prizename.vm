@@ -186,14 +186,14 @@
 				var openid=$("#openid").val();
 				var recordId=$("#hidden_record_id").val();
 				jQuery.ajax({
-		       		url:"../goldeneggs/saveGoldEggPrize.do",
+		       		url:"../goldeneggs/saveGoldEggPrize",
 		       		method:"POST",
 		       		dataType:"JSON",
 		       		data:{mobile:tel,username:name,address:adr,recordId:recordId},
 		       		success:function(data){
 		       		   if(data.success){
 		       		   		alert("提交成功，谢谢参与！");
-		       			  url="../goldeneggs/toMyPrize.do";
+		       			  url="../goldeneggs/toMyPrize";
 							location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid;
 		       		   }else{
 		       		   		alert(data.msg);
@@ -209,7 +209,7 @@
 				var actId=$("#actId").val();
 				var openid=$("#openid").val();
 				jQuery.ajax({
-					url:"../goldeneggs/toUpdateMessage.do",
+					url:"../goldeneggs/toUpdateMessage",
 		       		method:"POST",
 		       		dataType:"JSON",
 		       		data:{jwid:jwid,actId:actId,openid:openid,id:id},
@@ -245,7 +245,7 @@
 		       	var jwid=$("#jwid").val();
 				var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toGoldenegg.do";
+			    url="../goldeneggs/toGoldenegg";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid+"&appid=$!{weixinDto.appid}";
 		}
 		//跳转我的奖品页面
@@ -253,7 +253,7 @@
 				var jwid=$("#jwid").val();
 		        var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toMyPrize.do";
+			    url="../goldeneggs/toMyPrize";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid+"&appid=$!{weixinDto.appid}";
 		}
 		//跳转所有奖品信息页面
@@ -261,7 +261,7 @@
 				var jwid=$("#jwid").val();
 		        var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toAllPrize.do";
+			    url="../goldeneggs/toAllPrize";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid+"&appid=$!{weixinDto.appid}";
 		}
 		</script>

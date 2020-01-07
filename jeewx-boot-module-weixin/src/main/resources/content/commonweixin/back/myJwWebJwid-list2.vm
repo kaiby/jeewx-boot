@@ -63,7 +63,7 @@ padding-top: 40px;
 					</div>
 					  #end
 					  #end
-					<div class="addAccountBox" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid2/toSweepCodeAuthorization.do')">
+					<div class="addAccountBox" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid2/toSweepCodeAuthorization')">
 						<span class="iconAddAc"></span>
 						<span>添加微信公众号</span>
 					</div>
@@ -81,7 +81,7 @@ function deleteAuth(id){
 	  btn: ['确认','取消'] //按钮
 	}, function(){
 		jQuery.ajax({
-			url:'$!{basePath}/commonweixin/back/myJwWebJwid2/doDelete.do?id='+id,
+			url:'$!{basePath}/commonweixin/back/myJwWebJwid2/doDelete?id='+id,
 			type:'get',
 			dataType:"json",
 			success:function(data) {

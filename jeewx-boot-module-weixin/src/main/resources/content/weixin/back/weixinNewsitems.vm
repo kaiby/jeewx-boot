@@ -120,7 +120,7 @@ function reflash(){
 //新增图文素材
 function goAdd(newstemplateId){
     if(newstemplateId){
-	var url ='$!{basePath}/weixin/back/weixinNewsitem/toAdd.do?newstemplateId='+newstemplateId;
+	var url ='$!{basePath}/weixin/back/weixinNewsitem/toAdd?newstemplateId='+newstemplateId;
 	 $("#showframe").attr("src",url);
 	}
 }
@@ -128,7 +128,7 @@ function goAdd(newstemplateId){
 //编辑图文素材
 function goUpate(newstemplateId){
     if(newstemplateId){
-	 var  url = '$!{basePath}/weixin/back/weixinNewsitem/toEdit.do?id='+newstemplateId;
+	 var  url = '$!{basePath}/weixin/back/weixinNewsitem/toEdit?id='+newstemplateId;
 	 $("#showframe").attr("src",url);
 	}
 }
@@ -136,7 +136,7 @@ function goUpate(newstemplateId){
 //预览图文素材
 function preview(newstemplateId){
 	var jwid='$!{jwid}';
-	var url = "$!{basePath}/weixinNewsController/goContent.do?&id="+newstemplateId+"&jwid="+jwid;
+	var url = "$!{basePath}/weixinNewsController/goContent?&id="+newstemplateId+"&jwid="+jwid;
 	window.open(url);
 }
 function previewUrl(url){
@@ -145,7 +145,7 @@ function previewUrl(url){
 	
 //删除图文素材
 function goDelete(newsId){
-	var url = "$!{basePath}/weixin/back/weixinNewsitem/doDelete.do?id="+newsId;
+	var url = "$!{basePath}/weixin/back/weixinNewsitem/doDelete?id="+newsId;
 	parent.layer.confirm('确认删除吗？', {
     btn: ['确定','取消'] //按钮
 		}, function(index){
@@ -186,7 +186,7 @@ function changeOrder(newsId,up,orderNo){
 		order=order+1;
     	passiveNewsId=$("#id"+order).val();
     }
-	var url = "$!{basePath}/weixin/back/weixinNewsitem/changeOrder.do?passiveNewsId="+passiveNewsId+"&id="+newsId+"&state="+up;
+	var url = "$!{basePath}/weixin/back/weixinNewsitem/changeOrder?passiveNewsId="+passiveNewsId+"&id="+newsId+"&state="+up;
 	jQuery.ajax({
 		url:url,
 		type:"post",

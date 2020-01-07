@@ -9,9 +9,9 @@
 			<div class="panel panel-default">
     				<div class="panel-heading">
     					<button type="button" class="btn btn-primary" id="formSubmit"><span class="glyphicon glyphicon-ok"></span> 提交</button>
-    					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+    					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/commonweixin/back/myJwWebJwid/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
     				</div>
-				<form id="dailogForm" role="form" action="$!{basePath}/commonweixin/back/myJwWebJwid/switchDefaultOfficialAcco.do" method="post"  id="dailogForm">
+				<form id="dailogForm" role="form" action="$!{basePath}/commonweixin/back/myJwWebJwid/switchDefaultOfficialAcco" method="post"  id="dailogForm">
     				<div class="panel-body">
     					<div class="form-group col-sm-12">
     					    <label for="name" class="control-label col-sm-1 line34">旧公众号ID</label>

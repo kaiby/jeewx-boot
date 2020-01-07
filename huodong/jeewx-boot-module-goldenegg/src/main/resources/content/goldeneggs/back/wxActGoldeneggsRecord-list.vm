@@ -8,15 +8,15 @@
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
 		 #if($!{prizesStateFlag})
-			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list.do?prizesStateFlag=$!{prizesStateFlag}" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list?prizesStateFlag=$!{prizesStateFlag}" method="post"  id="formSubmit">
 		 #else
-			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list" method="post"  id="formSubmit">
 		 #end		
 				<input type="hidden" name="actId" id="actId" value="$!{wxActGoldeneggsRecord.actId}" />
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 									<div class="panel-heading" style="34px">
-									  	<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+									  	<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 										<div style="height:1px;clear:both"></div>
 									</div>
 								<div class="panel-body">
@@ -61,9 +61,9 @@
 								  		</div>
 								  		<div id="legend">
 								  		#if($!{prizesStateFlag})
-                                          <legend  class="le"><a class="btn btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/exportExcel.do?actId=$!{wxActGoldeneggsRecord.actId}&prizesStateFlag=$!{prizesStateFlag}')"><span class="glyphicon glyphicon-export"></span> 导出中奖记录</a></legend>
+                                          <legend  class="le"><a class="btn btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/exportExcel?actId=$!{wxActGoldeneggsRecord.actId}&prizesStateFlag=$!{prizesStateFlag}')"><span class="glyphicon glyphicon-export"></span> 导出中奖记录</a></legend>
 								        #else
-                                          <legend  class="le"><a class="btn btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/exportExcel.do?actId=$!{wxActGoldeneggsRecord.actId}')"><span class="glyphicon glyphicon-export"></span> 导出抽奖记录</a></legend>
+                                          <legend  class="le"><a class="btn btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/exportExcel?actId=$!{wxActGoldeneggsRecord.actId}')"><span class="glyphicon glyphicon-export"></span> 导出抽奖记录</a></legend>
 								        #end
 								        </div>
 								        <table class="table table-striped">
@@ -152,7 +152,7 @@ function doRecieve(id,recieveStatus){
     		}, function(){
 			jQuery.ajax({
         		type:'post',
-        		url:"$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/doEdit.do",
+        		url:"$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/doEdit",
         		dataType:'json',
         		data:{
        				id:id,

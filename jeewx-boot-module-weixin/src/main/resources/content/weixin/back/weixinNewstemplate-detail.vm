@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-				<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/weixin/back/weixinNewstemplate/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+				<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/weixin/back/weixinNewstemplate/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 				</div>
 				  	<div class="panel-body">
 				   		<form class="form-horizontal" role="form">

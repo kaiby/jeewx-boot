@@ -160,7 +160,7 @@ public class WeixinCommonController {
 		velocityContext.put("myJwWeb", myJwWeb);
 		//设置分享后用户点击的url
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
-		String url = basePath + "/weixin/back/weixinCommon/goContent.do?id="+id+"&jwid="+jwid;
+		String url = basePath + "/weixin/back/weixinCommon/goContent?id="+id+"&jwid="+jwid;
 		velocityContext.put("url", url);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String createTime = sdf.format(newsItem.getCreateTime());

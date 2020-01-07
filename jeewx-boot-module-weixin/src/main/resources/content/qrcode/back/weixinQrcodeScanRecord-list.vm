@@ -7,13 +7,13 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/qrcode/back/weixinQrcodeScanRecord/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/qrcode/back/weixinQrcodeScanRecord/list" method="post"  id="formSubmit">
 				<input type="hidden" id="sceneId" name="sceneId" value="$!{sceneId}">
 				<input type="hidden" id="jwid" name="jwid" value="$!{jwid}">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">
-								  		<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcode/list.do')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+								  		<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcode/list')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 								  </div>
 								  <div class="panel-body">
 								  		<div class="search">
@@ -32,9 +32,9 @@
 								  		</div>
 								  		<div id="legend">
 									  		#if($!{sceneId}&& $!{sceneId}!='')
-									          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcodeScanRecord/exportExcel.do?sceneId=$!{sceneId}&jwid=$!{jwid}&isScanSubscribe=$!{weixinQrcodeScanRecord.isScanSubscribe}')" ><span class="glyphicon glyphicon-export"></span> 导出扫码记录</button></legend> 
+									          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcodeScanRecord/exportExcel?sceneId=$!{sceneId}&jwid=$!{jwid}&isScanSubscribe=$!{weixinQrcodeScanRecord.isScanSubscribe}')" ><span class="glyphicon glyphicon-export"></span> 导出扫码记录</button></legend>
 									        #else
-									          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcodeScanRecord/exportExcel.do?sceneStr=$!{sceneStr}&jwid=$!{jwid}&isScanSubscribe=$!{weixinQrcodeScanRecord.isScanSubscribe}')" ><span class="glyphicon glyphicon-export"></span> 导出扫码记录</button></legend> 
+									          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/qrcode/back/weixinQrcodeScanRecord/exportExcel?sceneStr=$!{sceneStr}&jwid=$!{jwid}&isScanSubscribe=$!{weixinQrcodeScanRecord.isScanSubscribe}')" ><span class="glyphicon glyphicon-export"></span> 导出扫码记录</button></legend>
 									        #end
 								        </div>
 								        <table class="table table-striped">

@@ -104,7 +104,7 @@ $(function(){
   }); 
 function queryChatLog() {
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinReceivetext/queryChatLog.do?id='+id,
+		url:'$!{basePath}/weixin/back/weixinReceivetext/queryChatLog?id='+id,
 		type:'POST',
 		dataType:'json',
 		success:function(data){
@@ -167,7 +167,7 @@ function queryChatLog() {
 function sendAnswer() {
 	var sendAnswer=$("#sendAnswer").val();
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinReceivetext/sendAnswer.do?id='+id,
+		url:'$!{basePath}/weixin/back/weixinReceivetext/sendAnswer?id='+id,
 		type:'POST',
 		data:{
 			sendAnswer:sendAnswer,
@@ -195,7 +195,7 @@ function sendAgain(id) {
 	    btn: ['确定','取消'] //按钮
 	    		}, function(){
 	    			jQuery.ajax({
-	    				url:'$!{basePath}/weixin/back/weixinReceivetext/sendAnswerAgain.do?id='+id,
+	    				url:'$!{basePath}/weixin/back/weixinReceivetext/sendAnswerAgain?id='+id,
 	    				type:'POST',
 	    				dataType:'json',
 	    				success:function(data){
@@ -219,7 +219,7 @@ function sendAgain(id) {
 function updateChatLog() {
 	if(inRecentTime != null){
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinReceivetext/updateChatLog.do?id='+id,
+		url:'$!{basePath}/weixin/back/weixinReceivetext/updateChatLog?id='+id,
 		type:'POST',
 		data:{inRecentTime:inRecentTime},
 		dataType:'json',
@@ -289,7 +289,7 @@ function queryMore() {
 	$("#quertMore").html('<img src="$!{basePath}/content/weixin/img/load.gif" width="20px" height="20px;">');
 	var chatHtml=$(".chat-discussion").html();
 	jQuery.ajax({
-		url:'$!{basePath}/weixin/back/weixinReceivetext/queryMoreChatLog.do?id='+id,
+		url:'$!{basePath}/weixin/back/weixinReceivetext/queryMoreChatLog?id='+id,
 		type:'POST',
 		data:{firstRecordTime:firstRecordTime},
 		dataType:'json',

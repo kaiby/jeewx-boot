@@ -180,14 +180,14 @@ $!{huodong_bottom_copyright}
 				var code=$("#code").val();
 				var recordId=$("#recordId").val();
 				jQuery.ajax({
-		       		url:"../goldeneggs/saveGoldEggPrize.do",
+		       		url:"../goldeneggs/saveGoldEggPrize",
 		       		method:"POST",
 		       		dataType:"JSON",
 		       		data:{mobile:tel,username:name,address:adr,recordId:recordId},
 		       		success:function(data){
 		       		   if(data.success){
 		       		   		alert("提交成功，谢谢参与！");
-		       			   	url="../goldeneggs/toGoldenegg.do";
+		       			   	url="../goldeneggs/toGoldenegg";
 				       location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid;
 		       		   }else{
 		       		   		alert(data.msg);
@@ -201,14 +201,14 @@ $!{huodong_bottom_copyright}
 				var jwid=$("#jwid").val();
 				var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toGoldenegg.do";
+			    url="../goldeneggs/toGoldenegg";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid;
 			});
 			$("#replay-btn2").bind("click",function(){
 				var jwid=$("#jwid").val();
 				var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toGoldenegg.do";
+			    url="../goldeneggs/toGoldenegg";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid;
 			});
 			
@@ -238,7 +238,7 @@ $!{huodong_bottom_copyright}
 				var actId=$("#actId").val();
 				var openid=$("#openid").val();
 				jQuery.ajax({
-		       		url:"../goldeneggs/toAward.do",
+		       		url:"../goldeneggs/toAward",
 		       		method:"POST",
 		       		dataType:"JSON",
 		       		async:false,
@@ -301,7 +301,7 @@ $!{huodong_bottom_copyright}
 				var actId=$("#actId").val();
 				var openid=$("#openid").val();
 				jQuery.ajax({
-		       		url:"../goldeneggs/toCheck.do",
+		       		url:"../goldeneggs/toCheck",
 		       		method:"POST",
 		       		dataType:"JSON",
 		       		async:false,
@@ -336,7 +336,7 @@ $!{huodong_bottom_copyright}
 		 		var jwid=$("#jwid").val();
 				var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toGoldenegg.do";
+			    url="../goldeneggs/toGoldenegg";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid;
 		}
 		//我的奖品名单连接
@@ -345,7 +345,7 @@ $!{huodong_bottom_copyright}
 		      	var jwid=$("#jwid").val();
 		        var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toMyPrize.do";
+			    url="../goldeneggs/toMyPrize";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid+"&appid=$!{weixinDto.appid}";
 		}
 		//所有获奖名单连接
@@ -353,7 +353,7 @@ $!{huodong_bottom_copyright}
 		        var jwid=$("#jwid").val();
 		        var actId=$("#actId").val();
 				var openid=$("#openid").val();
-			    url="../goldeneggs/toAllPrize.do";
+			    url="../goldeneggs/toAllPrize";
 				location.href= url + "?actId=" + actId + "&jwid=" + jwid + "&openid=" +openid+"&appid=$!{weixinDto.appid}";
 		}
 		

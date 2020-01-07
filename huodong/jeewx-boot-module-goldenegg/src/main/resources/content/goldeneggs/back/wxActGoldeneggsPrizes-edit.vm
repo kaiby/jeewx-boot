@@ -9,12 +9,12 @@
 			<div class="panel panel-default">
 				<div class="panel-heading" style="34px">
 					<button type="button" class="btn btn-primary" id="formSubmit"><span class="glyphicon glyphicon-ok"></span> 保存</button>
-					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/list.do?showReturnFlag=$!{showReturnFlag}')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
+					<button type="button" class="btn btn-default" id="formReturn" data-dismiss="modal" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/list?showReturnFlag=$!{showReturnFlag}')"><span class="glyphicon glyphicon-circle-arrow-left"></span> 返回</button>
 					<div style="height:1px;clear:both"></div>
 				</div>
 				
 				<div class="panel-body">
-					<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/doEdit.do" method="POST">
+					<form class="form-horizontal" role="form" id="dailogForm" action="$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/doEdit" method="POST">
 						 <input type="hidden" id="btn_sub" class="btn_sub" />
 						 <input type="hidden" value="$!{wxActGoldeneggsPrizes.id}" name="id" id="id" />
 												<div class="form-group mno">
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="$!{basePath}/plug-in/plugin/webuploader/css/webuploader.css" />
 <script >
 var opts={
-	url:"$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/doUpload.do"
+	url:"$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/doUpload"
 };
 
 $("#filePicker2").uploader(opts,function(data){

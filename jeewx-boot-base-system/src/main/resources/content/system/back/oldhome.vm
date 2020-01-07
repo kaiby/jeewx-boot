@@ -8,7 +8,7 @@ $(function(){
 	getProjectList();
 });
 function getProjectList(){
-	var url = "$!{basePath}/system/back/jwSystemProject/getProjList.do";
+	var url = "$!{basePath}/system/back/jwSystemProject/getProjList";
 	jQuery.ajax({
 		url : url,
 		type : 'post',

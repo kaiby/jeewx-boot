@@ -454,7 +454,7 @@ public class SystemController extends BaseController {
 	 */
 	private boolean sendEmail(JwSystemRegister register) {
 		String subject = "H5活动之家注册验证";// 邮件主题
-		String baseurl = SystemProperties.domain+"/system/check.do";
+		String baseurl = SystemProperties.domain+"/system/check";
 		// String baseUrl="http://localhost:8080";
 		String content = "用户 " + register.getEmail() + ",您好！<br/><br/>您正在注册H5活动之家登录帐号，如非本人操作，请忽略此邮件.<br/><br/>"
 				+ "<br/><a href='" + baseurl + "?authstring=" + register.getAuthstring() + "' target='_blank'>"

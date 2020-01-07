@@ -85,7 +85,7 @@ function doVerificationreview(){
 	        		awardcode=$('#code').val();
 	        	}
 	        	jQuery.ajax({
-	        		url:"$!{basePath}/goldeneggs/new/doVerify.do",
+	        		url:"$!{basePath}/goldeneggs/new/doVerify",
 	        		type:"POST",
 	        		dataType:"JSON",
 	        		data:{
@@ -114,7 +114,7 @@ function doSearch(){
 		jQuery.alert("输入兑奖码不可为空！", "提示");
 	}else{
 		jQuery.ajax({
-			url:"$!{basePath}/goldeneggs/new/doSearch.do",
+			url:"$!{basePath}/goldeneggs/new/doSearch",
 			type:"POST",
 			dataType:"JSON",
 			data:{

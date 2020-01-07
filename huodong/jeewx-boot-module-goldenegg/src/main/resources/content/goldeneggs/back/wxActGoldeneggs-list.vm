@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggs/list.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/goldeneggs/back/wxActGoldeneggs/list" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 								<div class="panel panel-default">
 								  <div class="panel-heading">砸金蛋活动配置</div>
@@ -101,9 +101,9 @@
 											  <div class="clearfix"></div>
 								  		</div>
 								  		<div id="legend">
-								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/toAdd.do')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>
-								          <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/list.do?showReturnFlag=1')" ><span class="glyphicon glyphicon-gift"></span> 奖品配置</button>
-								          <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsAwards/list.do?showReturnFlag=1')" ><span class="glyphicon glyphicon glyphicon-tag"></span> 奖项配置</button></legend> 
+								          <legend  class="le"><button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/toAdd')" ><span class="glyphicon glyphicon-plus"></span> 新增</button>
+								          <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsPrizes/list?showReturnFlag=1')" ><span class="glyphicon glyphicon-gift"></span> 奖品配置</button>
+								          <button type="button" class="btn btn-primary" onclick="doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsAwards/list?showReturnFlag=1')" ><span class="glyphicon glyphicon glyphicon-tag"></span> 奖项配置</button></legend>
 								        </div>
 								        <table class="table table-striped">
 									        <thead>
@@ -194,15 +194,15 @@
 																	#*<td>$!{info.createBy}</td>*#
 																	<td>$!dateTool.format("yyyy-MM-dd HH:mm:ss",$!{info.createTime})</td>
 										                <td class="last">
-							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/toEdit.do?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
-							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/goldeneggs/back/wxActGoldeneggs/doDelete.do?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
-						                      			<a class="btn btn-xs btn-info" href="javascript:doUrl('$!{basePath}/system/back/jwSystemActTxt/seniorActText.do?actCode=$!{info.id}&backurl=goldeneggs/back/wxActGoldeneggs/list.do')"><i class="fa fa-cogs"></i> 高级配置</a>
-						                      			<a class="btn btn-xs btn-success" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRelation/list.do?actId=$!{info.id}')"><i class="fa fa-list-alt"></i> 奖品明细</a>
+							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggs/toEdit?id=$!{info.id}')" ><i class="fa fa-edit"></i> 编辑</a>
+							                			<a class="btn btn-xs btn-danger" href="javascript:delData('$!{basePath}/goldeneggs/back/wxActGoldeneggs/doDelete?id=$!{info.id}')"><i class="fa fa-trash-o"></i> 删除</a>
+						                      			<a class="btn btn-xs btn-info" href="javascript:doUrl('$!{basePath}/system/back/jwSystemActTxt/seniorActText?actCode=$!{info.id}&backurl=goldeneggs/back/wxActGoldeneggs/list')"><i class="fa fa-cogs"></i> 高级配置</a>
+						                      			<a class="btn btn-xs btn-success" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRelation/list?actId=$!{info.id}')"><i class="fa fa-list-alt"></i> 奖品明细</a>
 						                      			<br>
 														<br>
-						                      			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/list.do?actId=$!{info.id}')" style="background-color: #1e90ff;border-color: #1e90ff"><i class="fa fa-th-list"></i> 审核员管理</a>
-							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list.do?actId=$!{info.id}&backurl=goldeneggs/back/wxActGoldeneggs/list.do')" style="background-color: #1e90ff;border-color: #1e90ff"><i class="fa fa-th-list"></i> 抽奖记录</a>
-							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list.do?actId=$!{info.id}&prizesStateFlag=1&backurl=goldeneggs/back/wxActGoldeneggs/list.do')" style="background-color: #ff521e;border-color: #ff521e"><i class="fa fa-th-list"></i> 中奖记录</a>
+						                      			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/verify/back/wxActGoldeneggsVerify/list?actId=$!{info.id}')" style="background-color: #1e90ff;border-color: #1e90ff"><i class="fa fa-th-list"></i> 审核员管理</a>
+							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list?actId=$!{info.id}&backurl=goldeneggs/back/wxActGoldeneggs/list')" style="background-color: #1e90ff;border-color: #1e90ff"><i class="fa fa-th-list"></i> 抽奖记录</a>
+							                			<a class="btn btn-xs btn-primary" href="javascript:doUrl('$!{basePath}/goldeneggs/back/wxActGoldeneggsRecord/list?actId=$!{info.id}&prizesStateFlag=1&backurl=goldeneggs/back/wxActGoldeneggs/list')" style="background-color: #ff521e;border-color: #ff521e"><i class="fa fa-th-list"></i> 中奖记录</a>
 						                				<a class="btn btn-xs btn-success" href="javascript:dialogDiv('myModal','访问链接','$!{info.shortUrl}','$!{info.id}','$!{info.title}')" style="background-Color:#CD0009;border:none"><i class="fa fa-link"></i> [活动链接]</a>
 						                				</td>
 									           		</tr>
@@ -273,7 +273,7 @@ $('body').on('click',function(event) {
 $("#down-button").click(function(){
 	var fileName = jQuery.trim($("#myModal").attr('fileName'));
 	var url = jQuery.trim($("#myModalContent").html());
-	url = "$!{basePath}/CommonController/downloadQRCode.do?url=" + url+"&fileName="+fileName;
+	url = "$!{basePath}/CommonController/downloadQRCode?url=" + url+"&fileName="+fileName;
 	window.location.href=url;
 });
 
@@ -288,7 +288,7 @@ $('#myModal').attr('fileName',fileName);
 	flag="true";
 	if(!content){
 		jQuery.ajax({
-			url:"$!{basePath}/goldeneggs/back/wxActGoldeneggs/getShortUrl.do",
+			url:"$!{basePath}/goldeneggs/back/wxActGoldeneggs/getShortUrl",
 			type:"POST",
 			dataType:"JSON",
 			data:{

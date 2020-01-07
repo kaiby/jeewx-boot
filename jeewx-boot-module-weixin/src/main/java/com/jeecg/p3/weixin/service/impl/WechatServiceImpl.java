@@ -514,7 +514,7 @@ public class WechatServiceImpl implements WechatService {
 				String url = "";
 				if ("news".equals(weixinNewsitem.getNewType())) {
 					//---update-begin-Alex----Date:20181010---for:替换文章访问链接
-					url = basePath + "/weixinNewsController/goContent.do?id=" + weixinNewsitem.getId() + "&jwid=" + weixinMessageDTO.getToUserName();
+					url = basePath + "/weixinNewsController/goContent?id=" + weixinNewsitem.getId() + "&jwid=" + weixinMessageDTO.getToUserName();
 					//---update-end-Alex----Date:20181010---for:替换文章访问链接
 				} else {
 					//图文外部链接参数替换

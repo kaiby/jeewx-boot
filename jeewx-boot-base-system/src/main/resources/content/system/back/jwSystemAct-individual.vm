@@ -7,7 +7,7 @@
 <body style='overflow:scroll;overflow-x:hidden'>
 	<div class="container bs-docs-container" style="width:100%;">
 		<div class="row">
-			<form role="form" class="form-inline" action="$!{basePath}/system/back/jwSystemAct/toIndividual.do" method="post"  id="formSubmit">
+			<form role="form" class="form-inline" action="$!{basePath}/system/back/jwSystemAct/toIndividual" method="post"  id="formSubmit">
 				<div  class="col-md-10" style="width:100%">
 					<div class="panel panel-default">
 						<div class="panel-body">
@@ -84,7 +84,7 @@
 											<!-- <td>$!{info.jwName}</td> -->
 											<td>$!{info.joinNum}</td>
 											<td>$!dateTool.format("yyyy-MM-dd HH:mm:ss",$!{info.createTime})</td>
-											<td><a class="btn btn-info btn-xs" href="javascript:doUrl('$!{basePath}/analysis/back/jwSystemAct/toAnalysisList.do?actId=$!{info.actId}')" ><i class="fa fa-area-chart"></i>统计</a>
+											<td><a class="btn btn-info btn-xs" href="javascript:doUrl('$!{basePath}/analysis/back/jwSystemAct/toAnalysisList?actId=$!{info.actId}')" ><i class="fa fa-area-chart"></i>统计</a>
 												<a class="btn btn-success btn-xs" href="javascript:dialogDiv('myModal','访问链接','$!{info.shortUrl}','$!{info.id}','$!{info.actName}')" id="fwlj$!{info.id}" publishState="$!{info.publishState}" style="background-color:#CD0009;border:none"><i class="fa fa-link"></i> [活动链接]</a>
 											</td>
 						           		</tr>
@@ -146,7 +146,7 @@ $("#down-button").click(function(){
 	var url = jQuery.trim($("#myModalContent").html());
 	var qrCodeName=jQuery.trim($("#downActName").html());
 	qrCodeName=qrCodeName+"二维码";
-	url = "$!{basePath}/system/back/jwSystemAct/downMatrix.do?url=" + url+"&qrCodeName="+qrCodeName;
+	url = "$!{basePath}/system/back/jwSystemAct/downMatrix?url=" + url+"&qrCodeName="+qrCodeName;
 	window.location.href=url;
 });
 </script>
@@ -168,7 +168,7 @@ $("#down-button").click(function(){
     	flag="true";
     	if(!content){
     		jQuery.ajax({
-    			url:"$!{basePath}/system/back/jwSystemAct/getShortUrl.do",
+    			url:"$!{basePath}/system/back/jwSystemAct/getShortUrl",
     			type:"POST",
     			dataType:"JSON",
     			data:{

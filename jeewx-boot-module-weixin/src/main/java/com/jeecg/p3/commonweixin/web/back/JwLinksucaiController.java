@@ -103,7 +103,7 @@ public class JwLinksucaiController extends BaseController {
 			if (StringUtils.isEmpty(jwid)) {
 				throw new CommonweixinException("微信原始ID不能为空，请登录后在操作");
 			}
-			String link = CommonWeixinProperties.domain + "/weixinLinksucai/link.do?linkid=";
+			String link = CommonWeixinProperties.domain + "/weixinLinksucai/link?linkid=";
 			weixinLinksucai.setInnerLink(link);
 			// update end Author:huangqingquan date:2016-11-30
 			// for:生成素材链接---------------------------------
