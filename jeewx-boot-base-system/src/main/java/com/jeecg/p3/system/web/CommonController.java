@@ -7,10 +7,13 @@
  */
 package com.jeecg.p3.system.web;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.Iterables;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
+import com.jeecg.p3.baseApi.util.OSSMinioUtil;
 import com.jeecg.p3.core.annotation.SkipAuth;
 import com.jeecg.p3.core.enums.SkipPerm;
 import com.jeecg.p3.system.util.DySmsHelper;
@@ -20,15 +23,20 @@ import org.jeecgframework.p3.core.common.utils.AjaxJson;
 import org.jeecgframework.p3.core.utils.common.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.Hashtable;
@@ -127,7 +135,25 @@ public class CommonController {
 		return j;
 	}
 	//update-end--Author:zhangweijian  Date: 20180821 for：发送手机验证码
-	
+
+
+	@SkipAuth(auth= SkipPerm.SKIP_SIGN)
+	@RequestMapping(value = "getOOSFile/{filePath}", method ={RequestMethod.GET,RequestMethod.POST})
+	public ResponseEntity<InputStreamResource> getOOSFile(@PathVariable(value = "filePath") String filePath) throws Exception {
+
+		InputStream inputStream = OSSMinioUtil.download(filePath);
+		if (inputStream != null) {
+			Iterable<String> splitterIt = Splitter.on("/").split(filePath);
+			HttpHeaders headers = new HttpHeaders();
+			headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+			headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", Iterables.getLast(splitterIt)));
+			headers.add("Pragma", "no-cache");
+			headers.add("Expires", "0");
+			return ResponseEntity.ok().headers(headers).contentType(MediaType.parseMediaType("image/png")).body(new InputStreamResource(inputStream));
+		} else {
+			return new ResponseEntity(null, HttpStatus.NOT_FOUND);
+		}
+	}
 	
 	
 }

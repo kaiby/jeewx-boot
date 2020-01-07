@@ -1,6 +1,6 @@
 package com.jeecg.p3.weixin.web.back;
 
-import com.jeecg.p3.baseApi.util.OSSBootUtil;
+import com.jeecg.p3.baseApi.util.OSSMinioUtil;
 import com.jeecg.p3.commonweixin.util.Constants;
 import com.jeecg.p3.weixin.entity.WeixinNewsitem;
 import com.jeecg.p3.weixin.entity.WeixinNewstemplate;
@@ -266,7 +266,7 @@ public  AjaxJson doUpload(MultipartHttpServletRequest request, HttpServletRespon
 		    //String savePath = basePath+filePath;
 		    //File newFile = new File(savePath);
 		    //上传的文件写入到指定的文件中
-			String filename = OSSBootUtil.upload(multifile , "upload/files");
+			String filename = OSSMinioUtil.upload(multifile , "upload/files");
 			attributes.put("url", filename);
 			String format = filename .substring(filename .lastIndexOf("/") + 1);
 			attributes.put("fileKey", format);
